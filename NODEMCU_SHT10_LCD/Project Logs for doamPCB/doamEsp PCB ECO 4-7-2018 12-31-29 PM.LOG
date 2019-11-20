@@ -1,0 +1,26 @@
+Add component (AddParameter): Name = "Value"; Value = "1N4007"; VariantName = "[No Variations]"
+Added Component: Designator=D1(D1A)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "1N4007"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=D1-1
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Member To Class: ClassName=Doamsch Member=Component 7805 LM7805
+Added Member To Class: ClassName=Doamsch Member=Component C1 2200UF 16V
+Added Member To Class: ClassName=Doamsch Member=Component C2 2200UF 16V
+Added Member To Class: ClassName=Doamsch Member=Component C103 2KV
+Added Member To Class: ClassName=Doamsch Member=Component D1 1N4007
+Added Member To Class: ClassName=Doamsch Member=Component DiodeCau Diode Brideg
+Added Member To Class: ClassName=Doamsch Member=Component JACKVAO KF2
+Added Member To Class: ClassName=Doamsch Member=Component lcd JP4x1-2.0
+Added Member To Class: ClassName=Doamsch Member=Component LEDN LED
+Added Member To Class: ClassName=Doamsch Member=Component LEDRL LED
+Added Member To Class: ClassName=Doamsch Member=Component NodeMCU-? NodeMCU V1.0 ESP-12E
+Added Member To Class: ClassName=Doamsch Member=Component Q1 H1061
+Added Member To Class: ClassName=Doamsch Member=Component R1 1,2K
+Added Member To Class: ClassName=Doamsch Member=Component R2 1k
+Added Member To Class: ClassName=Doamsch Member=Component R3 1K
+Added Member To Class: ClassName=Doamsch Member=Component Relay 5V
+Added Member To Class: ClassName=Doamsch Member=Component SHT KF4
+Added Member To Class: ClassName=Doamsch Member=Component SW1 SW
+Added Member To Class: ClassName=Doamsch Member=Component SW2 SW
+Added Room: Name=Doamsch

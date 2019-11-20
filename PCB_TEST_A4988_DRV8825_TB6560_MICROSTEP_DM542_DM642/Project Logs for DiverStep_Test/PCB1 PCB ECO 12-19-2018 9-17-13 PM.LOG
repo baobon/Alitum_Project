@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=1B Pin=TB_6560-3
+Removed Pin From Net: NetName=1B Pin=TB_6560-3
+Removed Pin From Net: NetName=1A Pin=TB_6560-4
+Removed Pin From Net: NetName=1A Pin=TB_6560-4
+Removed Pin From Net: NetName=2A Pin=TB_6560-5
+Removed Pin From Net: NetName=2A Pin=TB_6560-5
+Removed Pin From Net: NetName=2B Pin=TB_6560-6
+Removed Pin From Net: NetName=2B Pin=TB_6560-6
+Removed Member From Class: ClassName=Sheet1 Member=TB_6560
+Added Component: Designator=*(TB6560_Module)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=1B Pin=*-3
+Added Pin To Net: NetName=1A Pin=*-4
+Added Pin To Net: NetName=2A Pin=*-5
+Added Pin To Net: NetName=2B Pin=*-6
+Added Member To Class: ClassName=Sheet1 Member=Component * TB6560_Module
+Added Member To Class: ClassName=Sheet1 Member=Component C? RF315-PT2272
+Added Room: Name=Sheet1

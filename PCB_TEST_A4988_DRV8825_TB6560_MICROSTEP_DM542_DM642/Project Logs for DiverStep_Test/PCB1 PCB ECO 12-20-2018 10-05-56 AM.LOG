@@ -1,0 +1,36 @@
+Removed Pin From Net: NetName=5V+ Pin=Arduino1-3V3
+Removed Pin From Net: NetName=IN2 Pin=Arduino1-4
+Removed Pin From Net: NetName=GND Pin=Arduino1-5V
+Removed Pin From Net: NetName=RF_D1 Pin=Arduino1-12
+Removed Pin From Net: NetName=LED_STATUS2 Pin=Arduino1-13
+Removed Pin From Net: NetName=IN1 Pin=Arduino1-~3
+Removed Pin From Net: NetName=IN3 Pin=Arduino1-~5
+Removed Pin From Net: NetName=IN4 Pin=Arduino1-~6
+Removed Pin From Net: NetName=PUL- Pin=Arduino1-~9
+Removed Pin From Net: NetName=DIR- Pin=Arduino1-~10
+Removed Pin From Net: NetName=RF_D0 Pin=Arduino1-~11
+Removed Member From Class: ClassName=Sheet1 Member=Arduino1
+Add component (AddParameter): Name = ""; Value = "Cau 5A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Cau 1A"; VariantName = "[No Variations]"
+Added Component: Designator=Arduino?(Arduino UNO R3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "Cau 5A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Cau 1A"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=IN1 Pin=Arduino?-2
+Added Pin To Net: NetName=IN3 Pin=Arduino?-4
+Added Pin To Net: NetName=5V+ Pin=Arduino?-5V
+Added Pin To Net: NetName=PUL- Pin=Arduino?-8
+Added Pin To Net: NetName=LED_STATUS2 Pin=Arduino?-12
+Added Pin To Net: NetName=LED_STATUS1 Pin=Arduino?-13
+Added Pin To Net: NetName=GND Pin=Arduino?-GND
+Added Pin To Net: NetName=GND Pin=Arduino?-GND
+Added Pin To Net: NetName=GND Pin=Arduino?-GND
+Added Pin To Net: NetName=GND Pin=Arduino?-GND
+Added Pin To Net: NetName=GND Pin=Arduino?-GND
+Added Pin To Net: NetName=GND Pin=Arduino?-GND
+Added Pin To Net: NetName=IN2 Pin=Arduino?-~3
+Added Pin To Net: NetName=IN4 Pin=Arduino?-~5
+Added Pin To Net: NetName=DIR- Pin=Arduino?-~9
+Added Pin To Net: NetName=RF_D0 Pin=Arduino?-~10
+Added Pin To Net: NetName=RF_D1 Pin=Arduino?-~11
+Added Member To Class: ClassName=Sheet1 Member=Component Arduino? Arduino Uno R3

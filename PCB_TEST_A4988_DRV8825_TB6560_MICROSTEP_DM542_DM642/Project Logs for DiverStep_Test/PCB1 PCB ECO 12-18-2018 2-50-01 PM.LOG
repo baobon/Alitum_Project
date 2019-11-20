@@ -1,0 +1,7 @@
+Change Component Designator: OldDesignator=DM860 NewDesignator=Dm542_Voltage
+Change Component Designator: OldDesignator=MiCroStep NewDesignator=MiCroStep_Voltage
+Add component (AddParameter): Name = "Value"; Value = "Connector 4"; VariantName = "[No Variations]"
+Added Component: Designator=TB6560(CON4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "Connector 4"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component TB6560 JP4

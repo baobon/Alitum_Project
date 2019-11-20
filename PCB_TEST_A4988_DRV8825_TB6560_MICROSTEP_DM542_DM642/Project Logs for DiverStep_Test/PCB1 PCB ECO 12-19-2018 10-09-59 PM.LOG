@@ -1,0 +1,6 @@
+Add component (AddParameter): Name = "Value"; Value = "Connector 4x2"; VariantName = "[No Variations]"
+Added Component: Designator=BTS_43A(JP4x2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "Connector 4x2"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component BTS_43A Connector 4x2
+Added Room: Name=Sheet1

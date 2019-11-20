@@ -1,0 +1,90 @@
+Change Component Designator: OldDesignator=Dm542 NewDesignator=Dm542_Voltage
+Change Component Designator: OldDesignator=DM542-Signal NewDesignator=DM542-TB6560
+Change Component Designator: OldDesignator=MiCroStep NewDesignator=MiCroStep_Voltage
+Change Component Designator: OldDesignator=MicroStep_Signal NewDesignator=MicroStep_DM860
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Added Component: Designator=5V(JP2-C1T)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "04"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613004143121"; VariantName = "[No Variations]"
+Added Component: Designator=ULN2003(JP4-D1C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "04"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613004143121"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=1A Pin=StepMotor-2
+Added Net: Name=1A
+Added Pin To Net: NetName=1B Pin=StepMotor-1
+Added Net: Name=1B
+Added Pin To Net: NetName=2A Pin=StepMotor-3
+Added Net: Name=2A
+Added Pin To Net: NetName=2B Pin=StepMotor-4
+Added Net: Name=2B
+Added Pin To Net: NetName=5V Pin=5V-2
+Added Net: Name=5V
+Added Pin To Net: NetName=DIR+ Pin=DM542-TB6560-3
+Added Pin To Net: NetName=DIR+ Pin=MicroStep_DM860-2
+Added Pin To Net: NetName=DIR+ Pin=TB6560-3
+Added Net: Name=DIR+
+Added Pin To Net: NetName=DIR- Pin=DM542-TB6560-4
+Added Pin To Net: NetName=DIR- Pin=MicroStep_DM860-1
+Added Pin To Net: NetName=DIR- Pin=TB6560-4
+Added Net: Name=DIR-
+Added Pin To Net: NetName=GND Pin=5V-1
+Added Pin To Net: NetName=GND Pin=Dm542_Voltage-2
+Added Pin To Net: NetName=GND Pin=JDC-2
+Added Pin To Net: NetName=GND Pin=MiCroStep_Voltage-2
+Added Net: Name=GND
+Added Pin To Net: NetName=IN1 Pin=ULN2003-4
+Added Net: Name=IN1
+Added Pin To Net: NetName=IN2 Pin=ULN2003-3
+Added Net: Name=IN2
+Added Pin To Net: NetName=IN3 Pin=ULN2003-2
+Added Net: Name=IN3
+Added Pin To Net: NetName=IN4 Pin=ULN2003-1
+Added Net: Name=IN4
+Added Pin To Net: NetName=NetDm542_Voltage_1 Pin=Dm542_Voltage-1
+Added Pin To Net: NetName=NetDm542_Voltage_1 Pin=JDC-1
+Added Pin To Net: NetName=NetDm542_Voltage_1 Pin=MiCroStep_Voltage-1
+Added Net: Name=NetDm542_Voltage_1
+Added Pin To Net: NetName=PUL+ Pin=DM542-TB6560-1
+Added Pin To Net: NetName=PUL+ Pin=MicroStep_DM860-4
+Added Pin To Net: NetName=PUL+ Pin=TB6560-1
+Added Net: Name=PUL+
+Added Pin To Net: NetName=PUL- Pin=DM542-TB6560-2
+Added Pin To Net: NetName=PUL- Pin=MicroStep_DM860-3
+Added Pin To Net: NetName=PUL- Pin=TB6560-2
+Added Net: Name=PUL-
+Added Member To Class: ClassName=Sheet1 Member=Component 5V JP2
+Added Member To Class: ClassName=Sheet1 Member=Component ULN2003 JP4
+Added Room: Name=Sheet1

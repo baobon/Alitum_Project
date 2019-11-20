@@ -1,0 +1,15 @@
+Added Pin To Net: NetName=PUL+ Pin=DM542-TB6560-3
+Added Pin To Net: NetName=PUL+ Pin=MicroStep_DM860-2
+Added Pin To Net: NetName=PUL+ Pin=TB6560-3
+Added Pin To Net: NetName=PUL+ Pin=Uno_R3-5V
+Added Pin To Net: NetName=GND Pin=Uno_R3-GND
+Added Pin To Net: NetName=GND Pin=Uno_R3-GND
+Added Pin To Net: NetName=GND Pin=Uno_R3-GND
+Added Pin To Net: NetName=GND Pin=Uno_R3-GND
+Added Pin To Net: NetName=GND Pin=Uno_R3-GND
+Added Pin To Net: NetName=GND Pin=Uno_R3-GND
+Added Pin To Net: NetName=PUL- Pin=Uno_R3-~9
+Added Pin To Net: NetName=DIR- Pin=Uno_R3-~10
+Change Net Name : Old Net Name=NetDm542_Voltage_1 New Net Name=POWER DC
+Change Net Name : Old Net Name=PUL+ New Net Name=5V+
+Added Room: Name=Sheet1

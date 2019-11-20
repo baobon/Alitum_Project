@@ -1,0 +1,12 @@
+Change Component Footprint: Designator=DM542-Signal Old Footprint=CON6 New Footprint=CON4
+Change Component Footprint: Designator=MicroStep_Signal Old Footprint=CON6 New Footprint=CON4
+Change Component Comment : Designator=DM542-Signal Old Comment=JP6 New Comment=JP4
+Change Component Comment : Designator=MicroStep_Signal Old Comment=JP6 New Comment=JP4
+Change Component Designator: OldDesignator=Dm542 NewDesignator=Dm542_Voltage
+Change Component Designator: OldDesignator=Microstep NewDesignator=MiCroStep_Voltage
+Change component parameters (AddParameter): Name = "Value"; Value = "Connector 4"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "Connector 4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "Connector 4"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "Connector 4"; VariantName = "[No Variations]"

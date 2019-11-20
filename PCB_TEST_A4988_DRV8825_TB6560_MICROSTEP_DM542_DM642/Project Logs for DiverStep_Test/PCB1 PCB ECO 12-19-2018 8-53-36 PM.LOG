@@ -1,0 +1,39 @@
+Removed Member From Class: ClassName=Sheet1 Member=tb
+Change Component Designator: OldDesignator=arduino NewDesignator=Uno_R3
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "04"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613004143121"; VariantName = "[No Variations]"
+Added Component: Designator=RF315(RF_315)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "04"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613004143121"; VariantName = "[No Variations]"
+Added Component: Designator=TB_6560(TB6560_Module)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=1B Pin=A4988-3
+Added Pin To Net: NetName=1A Pin=A4988-4
+Added Pin To Net: NetName=2A Pin=A4988-5
+Added Pin To Net: NetName=2B Pin=A4988-6
+Added Pin To Net: NetName=1B Pin=TB_6560-3
+Added Pin To Net: NetName=1B Pin=TB_6560-3
+Added Pin To Net: NetName=1A Pin=TB_6560-4
+Added Pin To Net: NetName=1A Pin=TB_6560-4
+Added Pin To Net: NetName=2A Pin=TB_6560-5
+Added Pin To Net: NetName=2A Pin=TB_6560-5
+Added Pin To Net: NetName=2B Pin=TB_6560-6
+Added Pin To Net: NetName=2B Pin=TB_6560-6
+Added Member To Class: ClassName=Sheet1 Member=Component RF315 RF315-PT2272
+Added Member To Class: ClassName=Sheet1 Member=Component TB_6560 TB6560_Module
+Added Room: Name=Sheet1

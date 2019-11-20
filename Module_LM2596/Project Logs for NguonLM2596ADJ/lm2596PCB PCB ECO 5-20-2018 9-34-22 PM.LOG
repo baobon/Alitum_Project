@@ -1,0 +1,6 @@
+Added Component: Designator=VR?(RM065-203)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC1_2 Pin=VR1-2
+Added Pin To Net: NetName=GND Pin=VR1-3
+Added Member To Class: ClassName=LM2596 Member=Component VR? 10K
+Added Room: Name=LM2596

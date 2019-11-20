@@ -1,0 +1,4 @@
+Added Component: Designator=*(Uno_Sheld)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sheet1 Member=Component * Uno_Sheld
+Added Room: Name=Sheet1

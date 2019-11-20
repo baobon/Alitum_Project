@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=manu Pin=SW3-1
+Removed Pin From Net: NetName=E Pin=SW3-2
+Removed Member From Class: ClassName=Doamsch Member=SW3

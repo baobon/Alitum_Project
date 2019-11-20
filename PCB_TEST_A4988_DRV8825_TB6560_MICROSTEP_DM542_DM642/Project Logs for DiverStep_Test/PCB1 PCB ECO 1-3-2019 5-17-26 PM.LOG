@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=POWER DC Pin=JDC1-1
+Add component (AddParameter): Name = "Designed by"; Value = "VanDungEvn"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Fuse"; VariantName = "[No Variations]"
+Added Component: Designator=fuse(Fuse1)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Designed by"; Value = "VanDungEvn"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Fuse"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=POWER DC Pin=fuse-2
+Added Pin To Net: NetName=POWER DC Pin=fuse-2
+Added Pin To Net: NetName=Netfuse_1 Pin=fuse-1
+Added Pin To Net: NetName=Netfuse_1 Pin=fuse-1
+Added Pin To Net: NetName=Netfuse_1 Pin=JDC1-1
+Added Net: Name=Netfuse_1
+Added Member To Class: ClassName=Sheet1 Member=Component fuse F1A
+Added Room: Name=Sheet1

@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=J? NewDesignator=Dm542_Voltage
+Change Component Designator: OldDesignator=J? NewDesignator=MiCroStep_Voltage
+Added Member To Class: ClassName=Sheet1 Member=Component MiCroStep_Voltage KF2
+Added Room: Name=Sheet1

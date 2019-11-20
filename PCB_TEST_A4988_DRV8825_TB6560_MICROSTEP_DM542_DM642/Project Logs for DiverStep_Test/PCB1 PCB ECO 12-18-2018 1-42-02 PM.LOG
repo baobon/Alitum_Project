@@ -1,0 +1,6 @@
+Add component (AddParameter): Name = "Value"; Value = "Jac DC"; VariantName = "[No Variations]"
+Added Component: Designator=JDC(DC0)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "Jac DC"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component JDC Jac DC
+Added Room: Name=Sheet1

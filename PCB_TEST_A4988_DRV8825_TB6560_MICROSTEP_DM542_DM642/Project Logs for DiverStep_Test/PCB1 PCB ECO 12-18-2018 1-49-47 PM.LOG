@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=MicroStep Signal NewDesignator=MicroStep_Signal
+Add component (AddParameter): Name = "Value"; Value = "Connector 6"; VariantName = "[No Variations]"
+Added Component: Designator=DM542-Signal(CON6)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "Connector 6"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component DM542-Signal JP6

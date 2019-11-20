@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=xanh Pin=sht-1
+Removed Pin From Net: NetName=vang Pin=sht-2
+Added Pin To Net: NetName=vang Pin=sht-1
+Added Pin To Net: NetName=xanh Pin=sht-2

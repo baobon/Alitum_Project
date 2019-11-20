@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=Dm542 Old Footprint=KF2-3.5 New Footprint=KF2-5.08
+Change Component Footprint: Designator=MiCroStep Old Footprint=KF2-3.5 New Footprint=KF2-5.08
+Change Component Designator: OldDesignator=Dm542 NewDesignator=Dm542_Voltage
+Change Component Designator: OldDesignator=MiCroStep NewDesignator=MiCroStep_Voltage
+Added Room: Name=Sheet1

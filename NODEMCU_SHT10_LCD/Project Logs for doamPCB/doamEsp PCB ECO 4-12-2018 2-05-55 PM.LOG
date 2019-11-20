@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=GND Pin=D1-1
+Removed Pin From Net: NetName=GND Pin=LEDRL-2
+Removed Pin From Net: NetName=5v Pin=Q1-2
+Removed Pin From Net: NetName=GND Pin=Relay-4
+Add component (AddParameter): Name = "Value"; Value = "SW chip 2 pin"; VariantName = "[No Variations]"
+Added Component: Designator=SW3(SW-2P-S)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "SW chip 2 pin"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5v Pin=D1-2
+Added Pin To Net: NetName=GND Pin=Q1-3
+Added Pin To Net: NetName=5v Pin=R3-2
+Added Pin To Net: NetName=5v Pin=Relay-5
+Added Pin To Net: NetName=GND Pin=SW3-2
+Change Net Name : Old Net Name=GND New Net Name=E
+Added Pin To Net: NetName=manu Pin=NodeMCU-D8
+Added Pin To Net: NetName=manu Pin=SW3-1
+Added Net: Name=manu
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_1 Pin=LEDRL-2
+Added Pin To Net: NetName=NetD1_1 Pin=Q1-2
+Added Pin To Net: NetName=NetD1_1 Pin=Relay-4
+Added Net: Name=NetD1_1
+Added Pin To Net: NetName=NetJACKRA_1 Pin=JACKRA-1
+Added Pin To Net: NetName=NetJACKRA_1 Pin=Relay-1
+Added Net: Name=NetJACKRA_1
+Added Pin To Net: NetName=NetJACKRA_2 Pin=JACKRA-2
+Added Pin To Net: NetName=NetJACKRA_2 Pin=Relay-3
+Added Net: Name=NetJACKRA_2
+Added Member To Class: ClassName=Doamsch Member=Component C103 2KV
+Added Member To Class: ClassName=Doamsch Member=Component SW3 SW
+Added Room: Name=Doamsch

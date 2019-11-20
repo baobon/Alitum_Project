@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=INT Pin=JP1-7
+Change Component Footprint: Designator=RJ1 Old Footprint=RJ45 New Footprint=RJ45 Tranfomer
+Added Pin To Net: NetName=LEDA Pin=RJ1-9
+Added Pin To Net: NetName=NetR9_1 Pin=RJ1-10
+Added Pin To Net: NetName=NetR8_2 Pin=RJ1-11
+Added Pin To Net: NetName=LEDB Pin=RJ1-12
+Added Member To Class: ClassName=Schematic Member=Component C2 1uF
+Added Member To Class: ClassName=Schematic Member=Component C3 1uF

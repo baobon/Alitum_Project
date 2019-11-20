@@ -1,0 +1,9 @@
+Change Component Designator: OldDesignator=DMV NewDesignator=DMV1
+Change Component Designator: OldDesignator=MicroStep_DM860 NewDesignator=MicroStep_DM1
+Change Component Designator: OldDesignator=MiCroStepV NewDesignator=MiCroStepV1
+Added Pin To Net: NetName=5V+ Pin=BTS_1-3
+Added Pin To Net: NetName=5V+ Pin=BTS_1-7
+Added Pin To Net: NetName=RF_D2 Pin=BTS_1-8
+Added Pin To Net: NetName=LPWM Pin=RF1-2
+Added Member To Class: ClassName=Sheet1 Member=Component DM1 JP4
+Added Room: Name=Sheet1

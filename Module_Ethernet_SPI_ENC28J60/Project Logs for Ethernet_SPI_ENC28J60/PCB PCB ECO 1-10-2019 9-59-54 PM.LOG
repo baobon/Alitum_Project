@@ -1,0 +1,13 @@
+Removed Member From Class: ClassName=Schematic Member=R6
+Change Component Comment : Designator=R9 Old Comment=1K New Comment=R6
+Change Component Designator: OldDesignator=R2 NewDesignator=R8
+Change Component Designator: OldDesignator=R3 NewDesignator=R9
+Change Component Designator: OldDesignator=R4 NewDesignator=R2
+Change Component Designator: OldDesignator=R5 NewDesignator=R3
+Change Component Designator: OldDesignator=R6 NewDesignator=R4
+Change Component Designator: OldDesignator=R7 NewDesignator=R5
+Change Component Designator: OldDesignator=R8 NewDesignator=R7
+Change Net Name : Old Net Name=NetR8_2 New Net Name=NetR7_2
+Added Member To Class: ClassName=Schematic Member=Component C2 1uF
+Added Member To Class: ClassName=Schematic Member=Component C3 1uF
+Added Member To Class: ClassName=Schematic Member=Component R9 10K

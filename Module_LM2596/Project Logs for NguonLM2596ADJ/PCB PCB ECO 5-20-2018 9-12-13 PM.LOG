@@ -1,0 +1,5 @@
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "478-1175-1-ND"; VariantName = "[No Variations]"
+Added Component: Designator=C3(C104 0603 SMD)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "478-1175-1-ND"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=LM2596 Member=Component C3 100pF

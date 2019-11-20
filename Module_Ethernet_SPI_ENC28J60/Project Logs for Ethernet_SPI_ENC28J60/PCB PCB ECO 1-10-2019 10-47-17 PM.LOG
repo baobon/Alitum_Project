@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=MISO Pin=ENC28J60-6
+Added Pin To Net: NetName=MOSI Pin=ENC28J60-7
+Added Member To Class: ClassName=Schematic Member=Component R9 10K

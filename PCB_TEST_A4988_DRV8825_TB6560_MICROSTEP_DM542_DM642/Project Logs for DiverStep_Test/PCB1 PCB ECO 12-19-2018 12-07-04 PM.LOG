@@ -1,0 +1,8 @@
+Removed Member From Class: ClassName=Sheet1 Member=Arduino?
+Add component (AddParameter): Name = ""; Value = "Cau 5A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Cau 1A"; VariantName = "[No Variations]"
+Added Component: Designator=arduino(Arduino UNO R3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "Cau 5A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Cau 1A"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component arduino Arduino Uno R3

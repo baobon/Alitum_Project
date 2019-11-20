@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=sht-1
+Removed Pin From Net: NetName=5v Pin=sht-2
+Added Pin To Net: NetName=5v Pin=sht-1
+Added Pin To Net: NetName=GND Pin=sht-2
+Added Pin To Net: NetName=xanh Pin=sht-3
+Added Pin To Net: NetName=vang Pin=sht-4
+Added Room: Name=Doamsch

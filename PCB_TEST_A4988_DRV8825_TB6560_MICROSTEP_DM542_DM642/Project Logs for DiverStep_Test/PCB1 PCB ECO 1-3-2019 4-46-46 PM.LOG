@@ -1,0 +1,15 @@
+Added Component: Designator=*1(TB6560_Module)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=POWER DC Pin=*1-1
+Added Pin To Net: NetName=GND Pin=*1-2
+Added Pin To Net: NetName=2B Pin=*1-3
+Added Pin To Net: NetName=2A Pin=*1-4
+Added Pin To Net: NetName=1A Pin=*1-5
+Added Pin To Net: NetName=1B Pin=*1-6
+Added Pin To Net: NetName=5V+ Pin=*1-7
+Added Pin To Net: NetName=PUL- Pin=*1-8
+Added Pin To Net: NetName=5V+ Pin=*1-9
+Added Pin To Net: NetName=DIR- Pin=*1-10
+Added Member To Class: ClassName=Sheet1 Member=Component *1 TB6560_Module
+Added Member To Class: ClassName=Sheet1 Member=Component Arduino1 Arduino Uno R3
+Added Room: Name=Sheet1

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=VCAP Pin=C1-2
+Change Component Footprint: Designator=C1 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C2 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C3 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C4 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C5 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C6 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C7 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C8 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Footprint: Designator=C9 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Designator: OldDesignator=AMS1117 NewDesignator=AMS1
+Change Component Designator: OldDesignator=RJ45 NewDesignator=RJ1
+Added Room: Name=Schematic

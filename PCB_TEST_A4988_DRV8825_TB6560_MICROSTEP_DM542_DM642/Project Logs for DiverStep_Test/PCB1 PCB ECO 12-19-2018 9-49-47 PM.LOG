@@ -1,0 +1,21 @@
+Change Component Designator: OldDesignator=* NewDesignator=*1
+Change Component Designator: OldDesignator=5V NewDesignator=1
+Change Component Designator: OldDesignator=A4988 NewDesignator=A1
+Change Component Designator: OldDesignator=DM542-TB6560 NewDesignator=DM2
+Change Component Designator: OldDesignator=Dm542_Voltage NewDesignator=Dm1
+Change Component Designator: OldDesignator=JDC NewDesignator=JDC1
+Change Component Designator: OldDesignator=LED? NewDesignator=LED1
+Change Component Designator: OldDesignator=LED? NewDesignator=LED2
+Change Component Designator: OldDesignator=MicroStep_DM860 NewDesignator=MicroStep_DM1
+Change Component Designator: OldDesignator=MiCroStep_Voltage NewDesignator=MiCroStep_Voltage1
+Change Component Designator: OldDesignator=R? NewDesignator=R2
+Change Component Designator: OldDesignator=RF315 NewDesignator=RF1
+Change Component Designator: OldDesignator=StepMotor NewDesignator=StepMotor1
+Change Component Designator: OldDesignator=TB6560 NewDesignator=TB1
+Change Component Designator: OldDesignator=ULN2003 NewDesignator=ULN1
+Change Component Designator: OldDesignator=Uno_R3 NewDesignator=Uno_R1
+Change Net Name : Old Net Name=NetLED?_1 New Net Name=NetLED1_1
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetLED2_1 Pin=R2-2
+Added Net: Name=NetLED2_1
+Added Member To Class: ClassName=Sheet1 Member=Component LED2 LED

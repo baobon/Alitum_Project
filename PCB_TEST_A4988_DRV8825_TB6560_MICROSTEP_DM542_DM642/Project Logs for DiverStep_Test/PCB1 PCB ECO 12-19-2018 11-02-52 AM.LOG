@@ -1,0 +1,4 @@
+Added Component: Designator=*(TB6560_Module)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sheet1 Member=Component * TB6560_Module
+Added Room: Name=Sheet1

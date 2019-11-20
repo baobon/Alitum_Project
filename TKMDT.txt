@@ -1,0 +1,30 @@
+Phân tích ý tưởng
+Sơ đồ khối
+Tìm linh kiện : 	
+Vẽ thư viện , nguyên lí mạch in
+Vẽ sơ đồ nguyên lí
+Vẽ PCB	
+	+ Sắp xếp : Thẩm mỹ , đúng tiêu chuẩn (giảm nhiễu , tăng hiệu quả tối đa cho board);
+	+ Layout
+	
+---- 
+Library PCB + 	Khoảng cách chân ra để hàn board 0.5 (hoặc 0.2-0.3); 0.1 đối với SMT;
+			+ 	Phần tản nhiệt đặt số 0 hoặc 6;
+			+	Xác định chân pinout giữa là điểm 0 trong trục (x,y,z);
+			+ 	Tính toán tọa độ 
+			+ 	Tạo tên linh kiện dùng chung ( thường theo packed)
+			+ 	Kích thước đường line 0.1-0.2
+			
+			
+3d PCB Cap 0603 smd size : https://www.3dcontentcentral.com/secure/download-model.aspx?catalogid=171&id=421861
+
+Đặt Rule Đặt theo chuẩn của PCB VD Kim sơn
+	-	Độ rộng đường mạch : 0.3-0.3-2 ( cho công xuất )
+	-	Khaorng cashc hai đống tượng khác nhau : Credenci .. ----------- 	0.3
+	- 	Via : Đặt như nhau khác Via hole size
+	
+	
+	Xóa đường dây : U-U-N
+	
+	
+Data Clock k được đi chéo nhau (I2C,SPI,USB) 
