@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=Net7805_1 Pin=7805-1
+Removed Pin From Net: NetName=E Pin=7805-2
+Removed Pin From Net: NetName=5v Pin=7805-3
+Add component (AddParameter): Name = "Text Field1"; Value = "70"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Text Field2"; Value = "30"; VariantName = "[No Variations]"
+Added Component: Designator=7805(QTO-220H3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Text Field1"; Value = "70"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Text Field2"; Value = "30"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Net7805_1 Pin=7805-1
+Added Pin To Net: NetName=E Pin=7805-2
+Added Pin To Net: NetName=E Pin=7805-2
+Added Pin To Net: NetName=5v Pin=7805-3

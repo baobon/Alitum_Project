@@ -1,0 +1,4 @@
+Added Component: Designator=NANO(PCBComponent_1)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sch Member=Component NANO Arduino Nano
+Added Room: Name=Sch

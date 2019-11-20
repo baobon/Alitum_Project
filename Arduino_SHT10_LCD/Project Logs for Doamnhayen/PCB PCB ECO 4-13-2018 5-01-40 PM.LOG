@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=LEDRL? NewDesignator=LEDRL
+Change Net Name : Old Net Name=NetLEDRL?_1 New Net Name=NetLEDRL_1
+Added Member To Class: ClassName=Sch Member=Component GIAM KF2
+Added Member To Class: ClassName=Sch Member=Component MENU KF2
+Added Member To Class: ClassName=Sch Member=Component SHT KF4
+Added Member To Class: ClassName=Sch Member=Component TANG KF2

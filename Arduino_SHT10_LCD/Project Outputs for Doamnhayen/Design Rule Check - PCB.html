@@ -1,0 +1,993 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4/13/2018</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5:14:36 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc" class="file"><acronym title="D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc">D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">219</td></tr>
+</table>
+</td>
+</table><a name="IDMCYHFZ0LLEASBOHBBTEIXR5O1JOW02KMFRQXBLIFKMLHVIFDU3D"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWR0NPY4FWTFVMLZJHLMTFAGH2I1AQK5RLW4RZJCF0GWRLAAY24HB">Clearance Constraint (Gap=60mil) (All),(All)</a></td>
+<td class="column2">165</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDP1HA2UFCETWVFON11NXEACKXCMVTHTTQBLYHEJMEASEDAR5EW2VF">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXASUIFADTAUXFOYWWWOVPGN0BGE2GJNJW321AWCC4UZSZ3Q5B4AH">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2KCDHCPCE14AEGKMWDIQHIIL3LURVWV1PF12O5LGNGHPYXGWPVEH">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIQGHMO4JUIZLOBJMURJCWBMDMIWZ41GN5LNR1BFPPEBUCPAV5NKJ">Width Constraint (Min=20mil) (Max=60mil) (Preferred=30mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMSDSSZ0GA30ZLL0OKZSPWTXQTOQ2QIMIXRBC0POWTTDJLAX4BSGC">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1VDJPDQ2QGYQDE5UHLJOJRM15MFWPWSRQYRHYJJH324JQRZUF0UL">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDM2JKDVP32DTVMZYZMIQGNTZMPD3A4PCEULCGQEGVWDAQUMQA3YYJ">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3B2VCTPKQNPXJGFUOAUUA0TUGFIYUGYDE3NRHVCZO3SZPPQJJURI">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSZXND4N4ZK3TOEADIKIBMSXVAGFRYGHJI1PN3D1DS00CP5WEDWN">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">33</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4MU1MCHIDRKTECRSIVCDK5WVGN5ICSZWE4MVT0GU024J42ZF2BOL">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLHJIUH4PFNSJG45RRYREZA1TACSWSC4AA35UD0HB5ES5NVGV1DN">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWQZNR503ZHMNDPXFTJT1LYO0JPPDU4AHKIOKFHM4RTUPYNYMAAK">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">219</td>
+</tr>
+</table><br><a name="IDWR0NPY4FWTFVMLZJHLMTFAGH2I1AQK5RLW4RZJCF0GWRLAAY24HB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=60mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.375mil|Location2.X=2465.625mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.375mil|Location2.X=2465.625mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True">Clearance Constraint: (30mil &lt; 60mil) Between Pad 7805-2(2485mil,4500mil) on Multi-Layer And Pad 7805-1(2385mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.875mil|Location2.X=2468.125mil|Location1.Y=4441.875mil|Location2.Y=4503.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.875mil|Location2.X=2468.125mil|Location1.Y=4441.875mil|Location2.Y=4503.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (2485mil,4425mil)(2485mil,4500mil) on Bottom Layer And Pad 7805-1(2385mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.875mil|Location2.X=2468.125mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.875mil|Location2.X=2468.125mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (2485mil,4500mil)(2485mil,4600mil) on Bottom Layer And Pad 7805-1(2385mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2389.393mil|Location2.X=2450.643mil|Location1.Y=4406.857mil|Location2.Y=4468.107mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2389.393mil|Location2.X=2450.643mil|Location1.Y=4406.857mil|Location2.Y=4468.107mil|Absolute=True">Clearance Constraint: (49.55mil &lt; 60mil) Between Track (2230mil,4170mil)(2485mil,4425mil) on Bottom Layer And Pad 7805-1(2385mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.375mil|Location2.X=2565.625mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.375mil|Location2.X=2565.625mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True">Clearance Constraint: (30mil &lt; 60mil) Between Pad 7805-3(2585mil,4500mil) on Multi-Layer And Pad 7805-2(2485mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2401.875mil|Location2.X=2463.125mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2401.875mil|Location2.X=2463.125mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (2265mil,4500mil)(2385mil,4500mil) on Bottom Layer And Pad 7805-2(2485mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2506.875mil|Location2.X=2568.125mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2506.875mil|Location2.X=2568.125mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (2585mil,4500mil)(2725mil,4500mil) on Bottom Layer And Pad 7805-2(2485mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.875mil|Location2.X=2563.125mil|Location1.Y=4441.875mil|Location2.Y=4503.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.875mil|Location2.X=2563.125mil|Location1.Y=4441.875mil|Location2.Y=4503.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (2485mil,4425mil)(2485mil,4500mil) on Bottom Layer And Pad 7805-3(2585mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.875mil|Location2.X=2563.125mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.875mil|Location2.X=2563.125mil|Location1.Y=4496.875mil|Location2.Y=4558.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (2485mil,4500mil)(2485mil,4600mil) on Bottom Layer And Pad 7805-3(2585mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2498.986mil|Location2.X=2560.236mil|Location1.Y=4426.975mil|Location2.Y=4488.225mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2498.986mil|Location2.X=2560.236mil|Location1.Y=4426.975mil|Location2.Y=4488.225mil|Absolute=True">Clearance Constraint: (50.506mil &lt; 60mil) Between Track (2230mil,4170mil)(2485mil,4425mil) on Bottom Layer And Pad 7805-3(2585mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2536.875mil|Location2.X=2598.125mil|Location1.Y=4534.375mil|Location2.Y=4595.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2536.875mil|Location2.X=2598.125mil|Location1.Y=4534.375mil|Location2.Y=4595.625mil|Absolute=True">Clearance Constraint: (40mil &lt; 60mil) Between Track (2485mil,4600mil)(2840mil,4600mil) on Bottom Layer And Pad 7805-3(2585mil,4500mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2913.273mil|Location2.X=2974.523mil|Location1.Y=2324.375mil|Location2.Y=2385.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2913.273mil|Location2.X=2974.523mil|Location1.Y=2324.375mil|Location2.Y=2385.625mil|Absolute=True">Clearance Constraint: (51.181mil &lt; 60mil) Between Pad TANG-1(2875mil,2355mil) on Multi-Layer And Pad TANG-2(3012.795mil,2355mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.269mil|Location2.X=1246.519mil|Location1.Y=2265.162mil|Location2.Y=2326.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.269mil|Location2.X=1246.519mil|Location1.Y=2265.162mil|Location2.Y=2326.412mil|Absolute=True">Clearance Constraint: (41.787mil &lt; 60mil) Between Track (1180mil,2245mil)(1180mil,2480mil) on Bottom Layer And Pad SHT-4(1286mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1206.162mil|Location2.X=1267.412mil|Location1.Y=2247.269mil|Location2.Y=2308.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1206.162mil|Location2.X=1267.412mil|Location1.Y=2247.269mil|Location2.Y=2308.519mil|Absolute=True">Clearance Constraint: (35.787mil &lt; 60mil) Between Track (1180mil,2245mil)(1670mil,2245mil) on Bottom Layer And Pad SHT-4(1286mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1405.662mil|Location2.X=1466.912mil|Location1.Y=2247.269mil|Location2.Y=2308.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1405.662mil|Location2.X=1466.912mil|Location1.Y=2247.269mil|Location2.Y=2308.519mil|Absolute=True">Clearance Constraint: (35.787mil &lt; 60mil) Between Track (1180mil,2245mil)(1670mil,2245mil) on Bottom Layer And Pad SHT-3(1485.5mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1926.481mil|Location2.X=1987.731mil|Location1.Y=2265.162mil|Location2.Y=2326.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1926.481mil|Location2.X=1987.731mil|Location1.Y=2265.162mil|Location2.Y=2326.412mil|Absolute=True">Clearance Constraint: (45.787mil &lt; 60mil) Between Track (1995mil,2275mil)(1995mil,2480mil) on Bottom Layer And Pad SHT-1(1885mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1926.885mil|Location2.X=1988.135mil|Location1.Y=2257.195mil|Location2.Y=2318.445mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1926.885mil|Location2.X=1988.135mil|Location1.Y=2257.195mil|Location2.Y=2318.445mil|Absolute=True">Clearance Constraint: (49.243mil &lt; 60mil) Between Track (1995mil,2275mil)(2060mil,2210mil) on Bottom Layer And Pad SHT-1(1885mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1595.416mil|Location2.X=1656.666mil|Location1.Y=2384.673mil|Location2.Y=2445.923mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1595.416mil|Location2.X=1656.666mil|Location1.Y=2384.673mil|Location2.Y=2445.923mil|Absolute=True">Clearance Constraint: (46.459mil &lt; 60mil) Between Track (1485.5mil,2450mil)(1610mil,2450mil) on Bottom Layer And Pad SHT-2(1685mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1595.416mil|Location2.X=1656.666mil|Location1.Y=2384.673mil|Location2.Y=2445.923mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1595.416mil|Location2.X=1656.666mil|Location1.Y=2384.673mil|Location2.Y=2445.923mil|Absolute=True">Clearance Constraint: (46.459mil &lt; 60mil) Between Track (1610mil,2450mil)(1715mil,2555mil) on Bottom Layer And Pad SHT-2(1685mil,2345mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2154.375mil|Location2.X=2215.625mil|Location1.Y=2324.375mil|Location2.Y=2385.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2154.375mil|Location2.X=2215.625mil|Location1.Y=2324.375mil|Location2.Y=2385.625mil|Absolute=True">Clearance Constraint: (51.181mil &lt; 60mil) Between Pad MENU-1(2116.102mil,2355mil) on Multi-Layer And Pad MENU-2(2253.898mil,2355mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2534.375mil|Location2.X=2595.625mil|Location1.Y=2324.375mil|Location2.Y=2385.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2534.375mil|Location2.X=2595.625mil|Location1.Y=2324.375mil|Location2.Y=2385.625mil|Absolute=True">Clearance Constraint: (51.181mil &lt; 60mil) Between Pad GIAM-1(2496.102mil,2355mil) on Multi-Layer And Pad GIAM-2(2633.898mil,2355mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3172.414mil|Location2.X=3233.664mil|Location1.Y=4297.414mil|Location2.Y=4358.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3172.414mil|Location2.X=3233.664mil|Location1.Y=4297.414mil|Location2.Y=4358.664mil|Absolute=True">Clearance Constraint: (49.308mil &lt; 60mil) Between Track (3165mil,4310mil)(3250mil,4225mil) on Bottom Layer And Pad C1-1(3250mil,4375mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3168.43mil|Location2.X=3229.68mil|Location1.Y=4301.152mil|Location2.Y=4362.402mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3168.43mil|Location2.X=3229.68mil|Location1.Y=4301.152mil|Location2.Y=4362.402mil|Absolute=True">Clearance Constraint: (50.844mil &lt; 60mil) Between Track (2890mil,4310mil)(3165mil,4310mil) on Bottom Layer And Pad C1-1(3250mil,4375mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.375mil|Location2.X=1890.625mil|Location1.Y=4084.875mil|Location2.Y=4146.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.375mil|Location2.X=1890.625mil|Location1.Y=4084.875mil|Location2.Y=4146.125mil|Absolute=True">Clearance Constraint: (49mil &lt; 60mil) Between Pad DIODE CAU-3(1860mil,4215mil) on Multi-Layer And Pad DIODE CAU-4(1860mil,4016mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.375mil|Location2.X=1890.625mil|Location1.Y=4284.375mil|Location2.Y=4345.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.375mil|Location2.X=1890.625mil|Location1.Y=4284.375mil|Location2.Y=4345.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Pad DIODE CAU-2(1860mil,4415mil) on Multi-Layer And Pad DIODE CAU-3(1860mil,4215mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.375mil|Location2.X=1890.625mil|Location1.Y=4484.375mil|Location2.Y=4545.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.375mil|Location2.X=1890.625mil|Location1.Y=4484.375mil|Location2.Y=4545.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Pad DIODE CAU-1(1858mil,4615mil) on Multi-Layer And Pad DIODE CAU-2(1860mil,4415mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1354.375mil|Location2.X=1415.625mil|Location1.Y=4080.477mil|Location2.Y=4141.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1354.375mil|Location2.X=1415.625mil|Location1.Y=4080.477mil|Location2.Y=4141.727mil|Absolute=True">Clearance Constraint: (51.181mil &lt; 60mil) Between Pad JACKVAO-1(1385mil,4180mil) on Multi-Layer And Pad JACKVAO-2(1385mil,4042.205mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1404.375mil|Location2.X=1465.625mil|Location1.Y=4334.375mil|Location2.Y=4395.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1404.375mil|Location2.X=1465.625mil|Location1.Y=4334.375mil|Location2.Y=4395.625mil|Absolute=True">Clearance Constraint: (40mil &lt; 60mil) Between Track (1385mil,4180mil)(1385mil,4565mil) on Bottom Layer And Pad JDC-3(1535mil,4365mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.375mil|Location2.X=3530.625mil|Location1.Y=3799.375mil|Location2.Y=3860.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.375mil|Location2.X=3530.625mil|Location1.Y=3799.375mil|Location2.Y=3860.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Track (3120mil,3870mil)(3775mil,3870mil) on Bottom Layer And Pad R2-1(3500mil,3770mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3686.875mil|Location2.Y=3748.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3686.875mil|Location2.Y=3748.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (3005mil,3690mil)(3380mil,3690mil) on Bottom Layer And Pad R2-2(3150mil,3770mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2754.375mil|Location2.X=2815.625mil|Location1.Y=4026.875mil|Location2.Y=4088.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2754.375mil|Location2.X=2815.625mil|Location1.Y=4026.875mil|Location2.Y=4088.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Pad LEDNGUON-2(2735mil,4075mil) on Multi-Layer And Pad LEDNGUON-1(2835mil,4075mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2745.625mil|Location2.X=2806.875mil|Location1.Y=4044.375mil|Location2.Y=4105.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2745.625mil|Location2.X=2806.875mil|Location1.Y=4044.375mil|Location2.Y=4105.625mil|Absolute=True">Clearance Constraint: (52.5mil &lt; 60mil) Between Track (2735mil,4075mil)(2735mil,4155mil) on Bottom Layer And Pad LEDNGUON-1(2835mil,4075mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2752.803mil|Location2.X=2814.053mil|Location1.Y=4113.447mil|Location2.Y=4174.697mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2752.803mil|Location2.X=2814.053mil|Location1.Y=4113.447mil|Location2.Y=4174.697mil|Absolute=True">Clearance Constraint: (53.943mil &lt; 60mil) Between Track (2735mil,4155mil)(2890mil,4310mil) on Bottom Layer And Pad LEDNGUON-1(2835mil,4075mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2763.125mil|Location2.X=2824.375mil|Location1.Y=4044.375mil|Location2.Y=4105.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2763.125mil|Location2.X=2824.375mil|Location1.Y=4044.375mil|Location2.Y=4105.625mil|Absolute=True">Clearance Constraint: (52.5mil &lt; 60mil) Between Track (2835mil,4075mil)(2845mil,4065mil) on Bottom Layer And Pad LEDNGUON-2(2735mil,4075mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.375mil|Location2.X=2750.625mil|Location1.Y=3436.836mil|Location2.Y=3498.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.375mil|Location2.X=2750.625mil|Location1.Y=3436.836mil|Location2.Y=3498.086mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Pad Arduino-3V3(2720mil,3410mil) on Multi-Layer And Pad 1N4007-2(2725mil,3535mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2635.928mil|Location2.X=2697.178mil|Location1.Y=3562.822mil|Location2.Y=3624.072mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2635.928mil|Location2.X=2697.178mil|Location1.Y=3562.822mil|Location2.Y=3624.072mil|Absolute=True">Clearance Constraint: (52.175mil &lt; 60mil) Between Track (2545mil,3530mil)(2690mil,3675mil) on Bottom Layer And Pad 1N4007-2(2725mil,3535mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3709.375mil|Location2.X=3770.625mil|Location1.Y=3536.875mil|Location2.Y=3598.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3709.375mil|Location2.X=3770.625mil|Location1.Y=3536.875mil|Location2.Y=3598.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Pad LEDRL-2(3690mil,3585mil) on Multi-Layer And Pad LEDRL-1(3790mil,3585mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3700.625mil|Location2.X=3761.875mil|Location1.Y=3504.375mil|Location2.Y=3565.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3700.625mil|Location2.X=3761.875mil|Location1.Y=3504.375mil|Location2.Y=3565.625mil|Absolute=True">Clearance Constraint: (52.5mil &lt; 60mil) Between Track (3690mil,3520mil)(3690mil,3585mil) on Bottom Layer And Pad LEDRL-1(3790mil,3585mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3700.446mil|Location2.X=3761.696mil|Location1.Y=3498.502mil|Location2.Y=3559.752mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3700.446mil|Location2.X=3761.696mil|Location1.Y=3498.502mil|Location2.Y=3559.752mil|Absolute=True">Clearance Constraint: (54.147mil &lt; 60mil) Between Track (3560mil,3390mil)(3690mil,3520mil) on Bottom Layer And Pad LEDRL-1(3790mil,3585mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3686.187mil|Location2.X=3747.437mil|Location1.Y=3598.687mil|Location2.Y=3659.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3686.187mil|Location2.X=3747.437mil|Location1.Y=3598.687mil|Location2.Y=3659.937mil|Absolute=True">Clearance Constraint: (10.836mil &lt; 60mil) Between Track (3605mil,3770mil)(3790mil,3585mil) on Bottom Layer And Pad LEDRL-2(3690mil,3585mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3264.375mil|Location2.X=3325.625mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3264.375mil|Location2.X=3325.625mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True">Clearance Constraint: (20mil &lt; 60mil) Between Pad Q-2(3345mil,3510mil) on Multi-Layer And Pad Q-1(3245mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3276.875mil|Location2.X=3338.125mil|Location1.Y=3429.375mil|Location2.Y=3490.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3276.875mil|Location2.X=3338.125mil|Location1.Y=3429.375mil|Location2.Y=3490.625mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (3345mil,3390mil)(3345mil,3510mil) on Bottom Layer And Pad Q-1(3245mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3274.072mil|Location2.X=3335.322mil|Location1.Y=3549.072mil|Location2.Y=3610.322mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3274.072mil|Location2.X=3335.322mil|Location1.Y=3549.072mil|Location2.Y=3610.322mil|Absolute=True">Clearance Constraint: (55.711mil &lt; 60mil) Between Track (3335mil,3610mil)(3345mil,3600mil) on Bottom Layer And Pad Q-1(3245mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.425mil|Location2.X=3213.675mil|Location1.Y=3549.33mil|Location2.Y=3610.58mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.425mil|Location2.X=3213.675mil|Location1.Y=3549.33mil|Location2.Y=3610.58mil|Absolute=True">Clearance Constraint: (59.33mil &lt; 60mil) Between Track (3075mil,3535mil)(3150mil,3610mil) on Bottom Layer And Pad Q-1(3245mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3276.875mil|Location2.X=3338.125mil|Location1.Y=3529.375mil|Location2.Y=3590.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3276.875mil|Location2.X=3338.125mil|Location1.Y=3529.375mil|Location2.Y=3590.625mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (3345mil,3510mil)(3345mil,3600mil) on Bottom Layer And Pad Q-1(3245mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3174.375mil|Location2.X=3235.625mil|Location1.Y=3546.875mil|Location2.Y=3608.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3174.375mil|Location2.X=3235.625mil|Location1.Y=3546.875mil|Location2.Y=3608.125mil|Absolute=True">Clearance Constraint: (35mil &lt; 60mil) Between Track (3150mil,3610mil)(3335mil,3610mil) on Bottom Layer And Pad Q-1(3245mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.375mil|Location2.X=3425.625mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.375mil|Location2.X=3425.625mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True">Clearance Constraint: (20mil &lt; 60mil) Between Pad Q-3(3445mil,3510mil) on Multi-Layer And Pad Q-2(3345mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3251.875mil|Location2.X=3313.125mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3251.875mil|Location2.X=3313.125mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (3245mil,3295mil)(3245mil,3510mil) on Bottom Layer And Pad Q-2(3345mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.875mil|Location2.X=3438.125mil|Location1.Y=3479.375mil|Location2.Y=3540.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.875mil|Location2.X=3438.125mil|Location1.Y=3479.375mil|Location2.Y=3540.625mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (3445mil,3510mil)(3450mil,3515mil) on Bottom Layer And Pad Q-2(3345mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3379.375mil|Location2.X=3440.625mil|Location1.Y=3479.375mil|Location2.Y=3540.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3379.375mil|Location2.X=3440.625mil|Location1.Y=3479.375mil|Location2.Y=3540.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Track (3445mil,3510mil)(3445mil,3625mil) on Bottom Layer And Pad Q-2(3345mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3351.875mil|Location2.X=3413.125mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3351.875mil|Location2.X=3413.125mil|Location1.Y=3469.375mil|Location2.Y=3530.625mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (3345mil,3390mil)(3345mil,3510mil) on Bottom Layer And Pad Q-3(3445mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3351.875mil|Location2.X=3413.125mil|Location1.Y=3479.375mil|Location2.Y=3540.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3351.875mil|Location2.X=3413.125mil|Location1.Y=3479.375mil|Location2.Y=3540.625mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (3345mil,3510mil)(3345mil,3600mil) on Bottom Layer And Pad Q-3(3445mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3414.375mil|Location2.X=3475.625mil|Location1.Y=3401.875mil|Location2.Y=3463.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3414.375mil|Location2.X=3475.625mil|Location1.Y=3401.875mil|Location2.Y=3463.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (3345mil,3390mil)(3560mil,3390mil) on Bottom Layer And Pad Q-3(3445mil,3510mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2244.375mil|Location2.X=2305.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2244.375mil|Location2.X=2305.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D6(2225mil,2810mil) on Multi-Layer And Pad Arduino-D7(2325mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2344.375mil|Location2.X=2405.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2344.375mil|Location2.X=2405.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D8(2425mil,2810mil) on Multi-Layer And Pad Arduino-D7(2325mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2351.836mil|Location2.X=2413.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2351.836mil|Location2.X=2413.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2425mil,2505mil)(2425mil,2810mil) on Bottom Layer And Pad Arduino-D7(2325mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2194.375mil|Location2.X=2255.625mil|Location1.Y=2739.414mil|Location2.Y=2800.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2194.375mil|Location2.X=2255.625mil|Location1.Y=2739.414mil|Location2.Y=2800.664mil|Absolute=True">Clearance Constraint: (20.079mil &lt; 60mil) Between Track (2116.102mil,2636.102mil)(2225mil,2745mil) on Bottom Layer And Pad Arduino-D6(2225mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.836mil|Location2.X=2313.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.836mil|Location2.X=2313.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2325mil,2745mil)(2325mil,2810mil) on Bottom Layer And Pad Arduino-D6(2225mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2194.375mil|Location2.X=2255.625mil|Location1.Y=2739.414mil|Location2.Y=2800.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2194.375mil|Location2.X=2255.625mil|Location1.Y=2739.414mil|Location2.Y=2800.664mil|Absolute=True">Clearance Constraint: (20.079mil &lt; 60mil) Between Track (2225mil,2745mil)(2325mil,2745mil) on Bottom Layer And Pad Arduino-D6(2225mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2044.375mil|Location2.X=2105.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2044.375mil|Location2.X=2105.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D5(2125mil,2810mil) on Multi-Layer And Pad Arduino-D4(2025mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1944.375mil|Location2.X=2005.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1944.375mil|Location2.X=2005.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D3(1925mil,2810mil) on Multi-Layer And Pad Arduino-D4(2025mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1939.425mil|Location2.X=2000.675mil|Location1.Y=2776.483mil|Location2.Y=2837.733mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1939.425mil|Location2.X=2000.675mil|Location1.Y=2776.483mil|Location2.Y=2837.733mil|Absolute=True">Clearance Constraint: (50.21mil &lt; 60mil) Between Track (1925mil,2810mil)(1930mil,2805mil) on Bottom Layer And Pad Arduino-D4(2025mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1936.914mil|Location2.X=1998.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1936.914mil|Location2.X=1998.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1925mil,2750mil)(1925mil,2810mil) on Bottom Layer And Pad Arduino-D4(2025mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1844.375mil|Location2.X=1905.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1844.375mil|Location2.X=1905.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D2(1825mil,2810mil) on Multi-Layer And Pad Arduino-D3(1925mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1951.836mil|Location2.X=2013.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1951.836mil|Location2.X=2013.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2025mil,2695mil)(2025mil,2810mil) on Bottom Layer And Pad Arduino-D3(1925mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1744.375mil|Location2.X=1805.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1744.375mil|Location2.X=1805.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-GND(1725mil,2810mil) on Multi-Layer And Pad Arduino-D2(1825mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.914mil|Location2.X=1798.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.914mil|Location2.X=1798.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1725mil,2800mil)(1725mil,2810mil) on Bottom Layer And Pad Arduino-D2(1825mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1851.836mil|Location2.X=1913.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1851.836mil|Location2.X=1913.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1925mil,2810mil)(1930mil,2805mil) on Bottom Layer And Pad Arduino-D2(1825mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1851.836mil|Location2.X=1913.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1851.836mil|Location2.X=1913.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1925mil,2750mil)(1925mil,2810mil) on Bottom Layer And Pad Arduino-D2(1825mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.951mil|Location2.X=1798.201mil|Location1.Y=2773.633mil|Location2.Y=2834.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.951mil|Location2.X=1798.201mil|Location1.Y=2773.633mil|Location2.Y=2834.883mil|Absolute=True">Clearance Constraint: (55.578mil &lt; 60mil) Between Track (1640mil,2715mil)(1725mil,2800mil) on Bottom Layer And Pad Arduino-D2(1825mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1764.1mil|Location2.X=1825.35mil|Location1.Y=2809.65mil|Location2.Y=2870.9mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1764.1mil|Location2.X=1825.35mil|Location1.Y=2809.65mil|Location2.Y=2870.9mil|Absolute=True">Clearance Constraint: (25.79mil &lt; 60mil) Between Track (1725mil,2810mil)(2110mil,3195mil) on Bottom Layer And Pad Arduino-D2(1825mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1644.375mil|Location2.X=1705.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1644.375mil|Location2.X=1705.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-RST(1625mil,2810mil) on Multi-Layer And Pad Arduino-GND(1725mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1644.323mil|Location2.X=1705.573mil|Location1.Y=2776.437mil|Location2.Y=2837.687mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1644.323mil|Location2.X=1705.573mil|Location1.Y=2776.437mil|Location2.Y=2837.687mil|Absolute=True">Clearance Constraint: (40.226mil &lt; 60mil) Between Track (1710mil,2805mil)(1715mil,2810mil) on Bottom Layer And Pad Arduino-RST(1625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1651.836mil|Location2.X=1713.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1651.836mil|Location2.X=1713.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1725mil,2800mil)(1725mil,2810mil) on Bottom Layer And Pad Arduino-RST(1625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1646.836mil|Location2.X=1708.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1646.836mil|Location2.X=1708.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (45.079mil &lt; 60mil) Between Track (1715mil,2810mil)(1715mil,2815mil) on Bottom Layer And Pad Arduino-RST(1625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1627.15mil|Location2.X=1688.4mil|Location1.Y=2746.599mil|Location2.Y=2807.849mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1627.15mil|Location2.X=1688.4mil|Location1.Y=2746.599mil|Location2.Y=2807.849mil|Absolute=True">Clearance Constraint: (32.861mil &lt; 60mil) Between Track (1640mil,2715mil)(1725mil,2800mil) on Bottom Layer And Pad Arduino-RST(1625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1651.836mil|Location2.X=1713.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1651.836mil|Location2.X=1713.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1725mil,2810mil)(2110mil,3195mil) on Bottom Layer And Pad Arduino-RST(1625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1594.375mil|Location2.X=1655.625mil|Location1.Y=2724.414mil|Location2.Y=2785.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1594.375mil|Location2.X=1655.625mil|Location1.Y=2724.414mil|Location2.Y=2785.664mil|Absolute=True">Clearance Constraint: (50.079mil &lt; 60mil) Between Track (1415mil,2715mil)(1640mil,2715mil) on Bottom Layer And Pad Arduino-RST(1625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1494.375mil|Location2.X=1555.625mil|Location1.Y=2724.414mil|Location2.Y=2785.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1494.375mil|Location2.X=1555.625mil|Location1.Y=2724.414mil|Location2.Y=2785.664mil|Absolute=True">Clearance Constraint: (50.079mil &lt; 60mil) Between Track (1415mil,2715mil)(1640mil,2715mil) on Bottom Layer And Pad Arduino-RX0(1525mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1388.594mil|Location2.X=1449.844mil|Location1.Y=2724.455mil|Location2.Y=2785.705mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1388.594mil|Location2.X=1449.844mil|Location1.Y=2724.455mil|Location2.Y=2785.705mil|Absolute=True">Clearance Constraint: (50.604mil &lt; 60mil) Between Track (1180mil,2480mil)(1415mil,2715mil) on Bottom Layer And Pad Arduino-TX1(1425mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1394.375mil|Location2.X=1455.625mil|Location1.Y=2724.414mil|Location2.Y=2785.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1394.375mil|Location2.X=1455.625mil|Location1.Y=2724.414mil|Location2.Y=2785.664mil|Absolute=True">Clearance Constraint: (50.079mil &lt; 60mil) Between Track (1415mil,2715mil)(1640mil,2715mil) on Bottom Layer And Pad Arduino-TX1(1425mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2036.914mil|Location2.X=2098.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2036.914mil|Location2.X=2098.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2025mil,2695mil)(2025mil,2810mil) on Bottom Layer And Pad Arduino-D5(2125mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2444.375mil|Location2.X=2505.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2444.375mil|Location2.X=2505.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D9(2525mil,2810mil) on Multi-Layer And Pad Arduino-D8(2425mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2451.836mil|Location2.X=2513.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2451.836mil|Location2.X=2513.086mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2525mil,2725mil)(2525mil,2810mil) on Bottom Layer And Pad Arduino-D8(2425mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2336.914mil|Location2.X=2398.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2336.914mil|Location2.X=2398.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2325mil,2745mil)(2325mil,2810mil) on Bottom Layer And Pad Arduino-D8(2425mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2544.375mil|Location2.X=2605.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2544.375mil|Location2.X=2605.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D10(2625mil,2810mil) on Multi-Layer And Pad Arduino-D9(2525mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2436.914mil|Location2.X=2498.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2436.914mil|Location2.X=2498.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2425mil,2505mil)(2425mil,2810mil) on Bottom Layer And Pad Arduino-D9(2525mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2544.336mil|Location2.X=2605.586mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2544.336mil|Location2.X=2605.586mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.079mil &lt; 60mil) Between Track (2625mil,2810mil)(2625mil,2890mil) on Bottom Layer And Pad Arduino-D9(2525mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.375mil|Location2.X=2705.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.375mil|Location2.X=2705.625mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-D11(2725mil,2810mil) on Multi-Layer And Pad Arduino-D10(2625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2536.914mil|Location2.X=2598.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2536.914mil|Location2.X=2598.164mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2525mil,2725mil)(2525mil,2810mil) on Bottom Layer And Pad Arduino-D10(2625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.77mil|Location2.X=2641.02mil|Location1.Y=2729.718mil|Location2.Y=2790.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.77mil|Location2.X=2641.02mil|Location1.Y=2729.718mil|Location2.Y=2790.968mil|Absolute=True">Clearance Constraint: (43.679mil &lt; 60mil) Between Track (2525mil,2725mil)(2600mil,2725mil) on Bottom Layer And Pad Arduino-D10(2625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.77mil|Location2.X=2641.02mil|Location1.Y=2729.718mil|Location2.Y=2790.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.77mil|Location2.X=2641.02mil|Location1.Y=2729.718mil|Location2.Y=2790.968mil|Absolute=True">Clearance Constraint: (43.679mil &lt; 60mil) Between Track (2600mil,2725mil)(2875mil,2450mil) on Bottom Layer And Pad Arduino-D10(2625mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.414mil|Location2.X=2705.664mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.414mil|Location2.X=2705.664mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (40.079mil &lt; 60mil) Between Track (2625mil,2810mil)(2625mil,2890mil) on Bottom Layer And Pad Arduino-D11(2725mil,2810mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2846.836mil|Location2.X=2908.086mil|Location1.Y=3349.454mil|Location2.Y=3410.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2846.836mil|Location2.X=2908.086mil|Location1.Y=3349.454mil|Location2.Y=3410.704mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2920mil,3320mil)(2920mil,3575mil) on Bottom Layer And Pad Arduino-D13(2820mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2139.375mil|Location2.X=2200.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2139.375mil|Location2.X=2200.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-A3(2220mil,3410mil) on Multi-Layer And Pad Arduino-A4(2120mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2039.375mil|Location2.X=2100.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2039.375mil|Location2.X=2100.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-A5(2020mil,3410mil) on Multi-Layer And Pad Arduino-A4(2120mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2059.099mil|Location2.X=2120.349mil|Location1.Y=3409.65mil|Location2.Y=3470.9mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2059.099mil|Location2.X=2120.349mil|Location1.Y=3409.65mil|Location2.Y=3470.9mil|Absolute=True">Clearance Constraint: (25.79mil &lt; 60mil) Between Track (2020mil,3410mil)(2235mil,3625mil) on Bottom Layer And Pad Arduino-A4(2120mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1439.375mil|Location2.X=1500.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1439.375mil|Location2.X=1500.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-GND(1520mil,3410mil) on Multi-Layer And Pad Arduino-VIN(1420mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1446.836mil|Location2.X=1508.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1446.836mil|Location2.X=1508.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1520mil,3410mil)(1520mil,3690mil) on Bottom Layer And Pad Arduino-VIN(1420mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1446.836mil|Location2.X=1508.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1446.836mil|Location2.X=1508.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1520mil,3245mil)(1520mil,3410mil) on Bottom Layer And Pad Arduino-VIN(1420mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1539.375mil|Location2.X=1600.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1539.375mil|Location2.X=1600.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-RST(1620mil,3410mil) on Multi-Layer And Pad Arduino-GND(1520mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1639.375mil|Location2.X=1700.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1639.375mil|Location2.X=1700.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-5V(1720mil,3410mil) on Multi-Layer And Pad Arduino-RST(1620mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1634.336mil|Location2.X=1695.586mil|Location1.Y=3381.873mil|Location2.Y=3443.123mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1634.336mil|Location2.X=1695.586mil|Location1.Y=3381.873mil|Location2.Y=3443.123mil|Absolute=True">Clearance Constraint: (30.218mil &lt; 60mil) Between Track (1710mil,3415mil)(1720mil,3425mil) on Bottom Layer And Pad Arduino-RST(1620mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1639.336mil|Location2.X=1700.586mil|Location1.Y=3386.869mil|Location2.Y=3448.119mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1639.336mil|Location2.X=1700.586mil|Location1.Y=3386.869mil|Location2.Y=3448.119mil|Absolute=True">Clearance Constraint: (41.197mil &lt; 60mil) Between Track (1720mil,3425mil)(1720mil,3585mil) on Bottom Layer And Pad Arduino-RST(1620mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1646.836mil|Location2.X=1708.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1646.836mil|Location2.X=1708.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1720mil,3060mil)(1720mil,3410mil) on Bottom Layer And Pad Arduino-RST(1620mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1531.914mil|Location2.X=1593.164mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1531.914mil|Location2.X=1593.164mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1520mil,3410mil)(1520mil,3690mil) on Bottom Layer And Pad Arduino-RST(1620mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1531.914mil|Location2.X=1593.164mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1531.914mil|Location2.X=1593.164mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1520mil,3245mil)(1520mil,3410mil) on Bottom Layer And Pad Arduino-RST(1620mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1739.375mil|Location2.X=1800.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1739.375mil|Location2.X=1800.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-A7(1820mil,3410mil) on Multi-Layer And Pad Arduino-5V(1720mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1739.414mil|Location2.X=1800.664mil|Location1.Y=3386.869mil|Location2.Y=3448.119mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1739.414mil|Location2.X=1800.664mil|Location1.Y=3386.869mil|Location2.Y=3448.119mil|Absolute=True">Clearance Constraint: (41.197mil &lt; 60mil) Between Track (1710mil,3415mil)(1720mil,3425mil) on Bottom Layer And Pad Arduino-A7(1820mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1739.414mil|Location2.X=1800.664mil|Location1.Y=3386.869mil|Location2.Y=3448.119mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1739.414mil|Location2.X=1800.664mil|Location1.Y=3386.869mil|Location2.Y=3448.119mil|Absolute=True">Clearance Constraint: (41.197mil &lt; 60mil) Between Track (1720mil,3425mil)(1720mil,3585mil) on Bottom Layer And Pad Arduino-A7(1820mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1731.914mil|Location2.X=1793.164mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1731.914mil|Location2.X=1793.164mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (1720mil,3060mil)(1720mil,3410mil) on Bottom Layer And Pad Arduino-A7(1820mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1939.375mil|Location2.X=2000.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1939.375mil|Location2.X=2000.625mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad Arduino-A5(2020mil,3410mil) on Multi-Layer And Pad Arduino-A6(1920mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1946.836mil|Location2.X=2008.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1946.836mil|Location2.X=2008.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2020mil,3410mil)(2235mil,3625mil) on Bottom Layer And Pad Arduino-A6(1920mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2046.836mil|Location2.X=2108.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2046.836mil|Location2.X=2108.086mil|Location1.Y=3379.375mil|Location2.Y=3440.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2120mil,3410mil)(2240mil,3530mil) on Bottom Layer And Pad Arduino-A5(2020mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.099mil|Location2.X=2220.349mil|Location1.Y=3409.65mil|Location2.Y=3470.9mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.099mil|Location2.X=2220.349mil|Location1.Y=3409.65mil|Location2.Y=3470.9mil|Absolute=True">Clearance Constraint: (25.79mil &lt; 60mil) Between Track (2120mil,3410mil)(2240mil,3530mil) on Bottom Layer And Pad Arduino-A3(2220mil,3410mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2809.375mil|Location2.X=2870.625mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2809.375mil|Location2.X=2870.625mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad lcd1-3(2790mil,3720mil) on Multi-Layer And Pad lcd1-4(2890mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.914mil|Location2.X=2863.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.914mil|Location2.X=2863.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2790mil,3600mil)(2790mil,3720mil) on Bottom Layer And Pad lcd1-4(2890mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.914mil|Location2.X=2863.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.914mil|Location2.X=2863.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2790mil,3720mil)(2790mil,3840mil) on Bottom Layer And Pad lcd1-4(2890mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2709.375mil|Location2.X=2770.625mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2709.375mil|Location2.X=2770.625mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad lcd1-2(2690mil,3720mil) on Multi-Layer And Pad lcd1-3(2790mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2701.914mil|Location2.X=2763.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2701.914mil|Location2.X=2763.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2690mil,3675mil)(2690mil,3720mil) on Bottom Layer And Pad lcd1-3(2790mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2816.836mil|Location2.X=2878.086mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2816.836mil|Location2.X=2878.086mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2890mil,3720mil)(3005mil,3720mil) on Bottom Layer And Pad lcd1-3(2790mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2609.375mil|Location2.X=2670.625mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2609.375mil|Location2.X=2670.625mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (40.158mil &lt; 60mil) Between Pad lcd1-1(2590mil,3720mil) on Multi-Layer And Pad lcd1-2(2690mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.836mil|Location2.X=2778.086mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.836mil|Location2.X=2778.086mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2790mil,3600mil)(2790mil,3720mil) on Bottom Layer And Pad lcd1-2(2690mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.836mil|Location2.X=2778.086mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.836mil|Location2.X=2778.086mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2790mil,3720mil)(2790mil,3840mil) on Bottom Layer And Pad lcd1-2(2690mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2601.914mil|Location2.X=2663.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2601.914mil|Location2.X=2663.164mil|Location1.Y=3689.375mil|Location2.Y=3750.625mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2505mil,3720mil)(2590mil,3720mil) on Bottom Layer And Pad lcd1-2(2690mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2616.836mil|Location2.X=2678.086mil|Location1.Y=3659.454mil|Location2.Y=3720.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2616.836mil|Location2.X=2678.086mil|Location1.Y=3659.454mil|Location2.Y=3720.704mil|Absolute=True">Clearance Constraint: (55.079mil &lt; 60mil) Between Track (2690mil,3675mil)(2690mil,3720mil) on Bottom Layer And Pad lcd1-1(2590mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2605.282mil|Location2.X=2666.532mil|Location1.Y=3643.468mil|Location2.Y=3704.718mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2605.282mil|Location2.X=2666.532mil|Location1.Y=3643.468mil|Location2.Y=3704.718mil|Absolute=True">Clearance Constraint: (45.215mil &lt; 60mil) Between Track (2545mil,3530mil)(2690mil,3675mil) on Bottom Layer And Pad lcd1-1(2590mil,3720mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.375mil|Location2.X=2465.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.375mil|Location2.X=2465.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True">Clearance Constraint: (40mil &lt; 60mil) Between Track (2265mil,4500mil)(2385mil,4500mil) on Bottom Layer And Track (2485mil,4500mil)(2485mil,4600mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.375mil|Location2.X=2565.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.375mil|Location2.X=2565.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True">Clearance Constraint: (40mil &lt; 60mil) Between Track (2585mil,4500mil)(2725mil,4500mil) on Bottom Layer And Track (2485mil,4500mil)(2485mil,4600mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2694.375mil|Location2.X=2755.625mil|Location1.Y=4526.875mil|Location2.Y=4588.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2694.375mil|Location2.X=2755.625mil|Location1.Y=4526.875mil|Location2.Y=4588.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (2725mil,4320mil)(2725mil,4500mil) on Bottom Layer And Track (2485mil,4600mil)(2840mil,4600mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2554.375mil|Location2.X=2615.625mil|Location1.Y=4526.875mil|Location2.Y=4588.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2554.375mil|Location2.X=2615.625mil|Location1.Y=4526.875mil|Location2.Y=4588.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (2585mil,4500mil)(2725mil,4500mil) on Bottom Layer And Track (2485mil,4600mil)(2840mil,4600mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3696.875mil|Location2.Y=3758.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3696.875mil|Location2.Y=3758.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (3005mil,3690mil)(3380mil,3690mil) on Bottom Layer And Track (3085mil,3835mil)(3150mil,3770mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.759mil|Location2.X=2641.009mil|Location1.Y=2729.68mil|Location2.Y=2790.93mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.759mil|Location2.X=2641.009mil|Location1.Y=2729.68mil|Location2.Y=2790.93mil|Absolute=True">Clearance Constraint: (43.6mil &lt; 60mil) Between Track (2625mil,2810mil)(2625mil,2890mil) on Bottom Layer And Track (2525mil,2725mil)(2600mil,2725mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2536.875mil|Location2.X=2598.125mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2536.875mil|Location2.X=2598.125mil|Location1.Y=2779.375mil|Location2.Y=2840.625mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (2625mil,2810mil)(2625mil,2890mil) on Bottom Layer And Track (2525mil,2725mil)(2525mil,2810mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1623.125mil|Location2.X=1684.375mil|Location1.Y=2400.625mil|Location2.Y=2461.875mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1623.125mil|Location2.X=1684.375mil|Location1.Y=2400.625mil|Location2.Y=2461.875mil|Absolute=True">Clearance Constraint: (58.388mil &lt; 60mil) Between Track (1685mil,2345mil)(1685mil,2400mil) on Bottom Layer And Track (1610mil,2450mil)(1715mil,2555mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1623.125mil|Location2.X=1684.375mil|Location1.Y=2400.625mil|Location2.Y=2461.875mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1623.125mil|Location2.X=1684.375mil|Location1.Y=2400.625mil|Location2.Y=2461.875mil|Absolute=True">Clearance Constraint: (58.388mil &lt; 60mil) Between Track (1685mil,2400mil)(1765mil,2480mil) on Bottom Layer And Track (1610mil,2450mil)(1715mil,2555mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1703.125mil|Location2.X=1764.375mil|Location1.Y=2480.625mil|Location2.Y=2541.875mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1703.125mil|Location2.X=1764.375mil|Location1.Y=2480.625mil|Location2.Y=2541.875mil|Absolute=True">Clearance Constraint: (58.388mil &lt; 60mil) Between Track (1765mil,2480mil)(1995mil,2480mil) on Bottom Layer And Track (1610mil,2450mil)(1715mil,2555mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1684.375mil|Location2.X=1745.625mil|Location1.Y=2561.875mil|Location2.Y=2623.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1684.375mil|Location2.X=1745.625mil|Location1.Y=2561.875mil|Location2.Y=2623.125mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (1615mil,2630mil)(1805mil,2630mil) on Bottom Layer And Track (1610mil,2450mil)(1715mil,2555mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1454.875mil|Location2.X=1516.125mil|Location1.Y=2461.875mil|Location2.Y=2523.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1454.875mil|Location2.X=1516.125mil|Location1.Y=2461.875mil|Location2.Y=2523.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1400mil,2535mil)(1520mil,2535mil) on Bottom Layer And Track (1485.5mil,2450mil)(1610mil,2450mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1489.375mil|Location2.X=1550.625mil|Location1.Y=2461.875mil|Location2.Y=2523.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1489.375mil|Location2.X=1550.625mil|Location1.Y=2461.875mil|Location2.Y=2523.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1520mil,2535mil)(1615mil,2630mil) on Bottom Layer And Track (1485.5mil,2450mil)(1610mil,2450mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1454.875mil|Location2.X=1516.125mil|Location1.Y=2461.875mil|Location2.Y=2523.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1454.875mil|Location2.X=1516.125mil|Location1.Y=2461.875mil|Location2.Y=2523.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1400mil,2535mil)(1520mil,2535mil) on Bottom Layer And Track (1485.5mil,2355mil)(1485.5mil,2450mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1734.375mil|Location2.X=1795.625mil|Location1.Y=2486.875mil|Location2.Y=2548.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1734.375mil|Location2.X=1795.625mil|Location1.Y=2486.875mil|Location2.Y=2548.125mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (1715mil,2555mil)(1885mil,2555mil) on Bottom Layer And Track (1765mil,2480mil)(1995mil,2480mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1854.375mil|Location2.X=1915.625mil|Location1.Y=2486.875mil|Location2.Y=2548.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1854.375mil|Location2.X=1915.625mil|Location1.Y=2486.875mil|Location2.Y=2548.125mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (1885mil,2555mil)(2025mil,2695mil) on Bottom Layer And Track (1765mil,2480mil)(1995mil,2480mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1734.375mil|Location2.X=1795.625mil|Location1.Y=2486.875mil|Location2.Y=2548.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1734.375mil|Location2.X=1795.625mil|Location1.Y=2486.875mil|Location2.Y=2548.125mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (1715mil,2555mil)(1885mil,2555mil) on Bottom Layer And Track (1685mil,2400mil)(1765mil,2480mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.375mil|Location2.X=2565.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.375mil|Location2.X=2565.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True">Clearance Constraint: (40mil &lt; 60mil) Between Track (2485mil,4425mil)(2485mil,4500mil) on Bottom Layer And Track (2585mil,4500mil)(2725mil,4500mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.375mil|Location2.X=2465.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.375mil|Location2.X=2465.625mil|Location1.Y=4469.375mil|Location2.Y=4530.625mil|Absolute=True">Clearance Constraint: (40mil &lt; 60mil) Between Track (2485mil,4425mil)(2485mil,4500mil) on Bottom Layer And Track (2265mil,4500mil)(2385mil,4500mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3304.375mil|Location2.X=3365.625mil|Location1.Y=3621.875mil|Location2.Y=3683.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3304.375mil|Location2.X=3365.625mil|Location1.Y=3621.875mil|Location2.Y=3683.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (3005mil,3690mil)(3380mil,3690mil) on Bottom Layer And Track (3335mil,3610mil)(3345mil,3600mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3621.875mil|Location2.Y=3683.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3621.875mil|Location2.Y=3683.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (3005mil,3690mil)(3380mil,3690mil) on Bottom Layer And Track (3150mil,3610mil)(3335mil,3610mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3621.875mil|Location2.Y=3683.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3119.375mil|Location2.X=3180.625mil|Location1.Y=3621.875mil|Location2.Y=3683.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (3005mil,3690mil)(3380mil,3690mil) on Bottom Layer And Track (3075mil,3535mil)(3150mil,3610mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.759mil|Location2.X=2641.009mil|Location1.Y=2729.68mil|Location2.Y=2790.93mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2579.759mil|Location2.X=2641.009mil|Location1.Y=2729.68mil|Location2.Y=2790.93mil|Absolute=True">Clearance Constraint: (43.6mil &lt; 60mil) Between Track (2625mil,2810mil)(2625mil,2890mil) on Bottom Layer And Track (2600mil,2725mil)(2875mil,2450mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1774.375mil|Location2.X=1835.625mil|Location1.Y=2561.875mil|Location2.Y=2623.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1774.375mil|Location2.X=1835.625mil|Location1.Y=2561.875mil|Location2.Y=2623.125mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (1805mil,2630mil)(1925mil,2750mil) on Bottom Layer And Track (1715mil,2555mil)(1885mil,2555mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1684.375mil|Location2.X=1745.625mil|Location1.Y=2561.875mil|Location2.Y=2623.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1684.375mil|Location2.X=1745.625mil|Location1.Y=2561.875mil|Location2.Y=2623.125mil|Absolute=True">Clearance Constraint: (45mil &lt; 60mil) Between Track (1615mil,2630mil)(1805mil,2630mil) on Bottom Layer And Track (1715mil,2555mil)(1885mil,2555mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1596.875mil|Location2.X=1658.125mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1596.875mil|Location2.X=1658.125mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True">Clearance Constraint: (58.6mil &lt; 60mil) Between Track (1520mil,2535mil)(1615mil,2630mil) on Bottom Layer And Track (1640mil,2715mil)(1725mil,2800mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1609.375mil|Location2.X=1670.625mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1609.375mil|Location2.X=1670.625mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1615mil,2630mil)(1805mil,2630mil) on Bottom Layer And Track (1640mil,2715mil)(1725mil,2800mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1584.375mil|Location2.X=1645.625mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1584.375mil|Location2.X=1645.625mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1520mil,2535mil)(1615mil,2630mil) on Bottom Layer And Track (1415mil,2715mil)(1640mil,2715mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1584.375mil|Location2.X=1645.625mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1584.375mil|Location2.X=1645.625mil|Location1.Y=2641.875mil|Location2.Y=2703.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1615mil,2630mil)(1805mil,2630mil) on Bottom Layer And Track (1415mil,2715mil)(1640mil,2715mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.375mil|Location2.X=1170.625mil|Location1.Y=2449.375mil|Location2.Y=2510.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.375mil|Location2.X=1170.625mil|Location1.Y=2449.375mil|Location2.Y=2510.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Track (1100mil,2160mil)(1100mil,2805mil) on Bottom Layer And Track (1180mil,2480mil)(1415mil,2715mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.375mil|Location2.X=1170.625mil|Location1.Y=2214.375mil|Location2.Y=2275.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.375mil|Location2.X=1170.625mil|Location1.Y=2214.375mil|Location2.Y=2275.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Track (1100mil,2160mil)(1100mil,2805mil) on Bottom Layer And Track (1180mil,2245mil)(1180mil,2480mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1149.375mil|Location2.X=1210.625mil|Location1.Y=2171.875mil|Location2.Y=2233.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1149.375mil|Location2.X=1210.625mil|Location1.Y=2171.875mil|Location2.Y=2233.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1100mil,2160mil)(1885mil,2160mil) on Bottom Layer And Track (1180mil,2245mil)(1180mil,2480mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.375mil|Location2.X=1170.625mil|Location1.Y=2214.375mil|Location2.Y=2275.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.375mil|Location2.X=1170.625mil|Location1.Y=2214.375mil|Location2.Y=2275.625mil|Absolute=True">Clearance Constraint: (50mil &lt; 60mil) Between Track (1100mil,2160mil)(1100mil,2805mil) on Bottom Layer And Track (1180mil,2245mil)(1670mil,2245mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1149.375mil|Location2.X=1210.625mil|Location1.Y=2171.875mil|Location2.Y=2233.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1149.375mil|Location2.X=1210.625mil|Location1.Y=2171.875mil|Location2.Y=2233.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1100mil,2160mil)(1885mil,2160mil) on Bottom Layer And Track (1180mil,2245mil)(1670mil,2245mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1639.375mil|Location2.X=1700.625mil|Location1.Y=2171.875mil|Location2.Y=2233.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1639.375mil|Location2.X=1700.625mil|Location1.Y=2171.875mil|Location2.Y=2233.125mil|Absolute=True">Clearance Constraint: (55mil &lt; 60mil) Between Track (1670mil,2245mil)(1685mil,2260mil) on Bottom Layer And Track (1100mil,2160mil)(1885mil,2160mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3684.375mil|Location2.X=3745.625mil|Location1.Y=3579.375mil|Location2.Y=3640.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3684.375mil|Location2.X=3745.625mil|Location1.Y=3579.375mil|Location2.Y=3640.625mil|Absolute=True">Clearance Constraint: (40.711mil &lt; 60mil) Between Track (3690mil,3520mil)(3690mil,3585mil) on Bottom Layer And Track (3605mil,3770mil)(3790mil,3585mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2184.375mil|Location2.X=2245.625mil|Location1.Y=3524.375mil|Location2.Y=3585.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2184.375mil|Location2.X=2245.625mil|Location1.Y=3524.375mil|Location2.Y=3585.625mil|Absolute=True">Clearance Constraint: (40.711mil &lt; 60mil) Between Track (2020mil,3410mil)(2235mil,3625mil) on Bottom Layer And Track (2240mil,3530mil)(2545mil,3530mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.375mil|Location2.X=2125.625mil|Location1.Y=3404.375mil|Location2.Y=3465.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.375mil|Location2.X=2125.625mil|Location1.Y=3404.375mil|Location2.Y=3465.625mil|Absolute=True">Clearance Constraint: (40.711mil &lt; 60mil) Between Track (2020mil,3410mil)(2235mil,3625mil) on Bottom Layer And Track (2120mil,3410mil)(2240mil,3530mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDSZXND4N4ZK3TOEADIKIBMSXVAGFRYGHJI1PN3D1DS00CP5WEDWN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2446.518mil|Location2.X=2454.185mil|Location1.Y=4661.518mil|Location2.Y=4669.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2446.518mil|Location2.X=2454.185mil|Location1.Y=4661.518mil|Location2.Y=4669.185mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Arc (2485mil,4700mil) on Top Overlay And Pad 7805-2(2485mil,4700mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3662.535mil|Location2.X=3673.785mil|Location1.Y=2344.375mil|Location2.Y=2355.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3662.535mil|Location2.X=3673.785mil|Location1.Y=2344.375mil|Location2.Y=2355.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.287mil &lt; 10mil) Between Arc (3600mil,2350mil) on Top Overlay And Pad CSET-2(3630mil,2350mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.287mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.715mil|Location2.X=3364.965mil|Location1.Y=2344.375mil|Location2.Y=2355.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.715mil|Location2.X=3364.965mil|Location1.Y=2344.375mil|Location2.Y=2355.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.287mil &lt; 10mil) Between Arc (3430mil,2350mil) on Top Overlay And Pad CSET-1(3395mil,2350mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [1.287mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2450.723mil|Location2.X=2458.389mil|Location1.Y=4735.334mil|Location2.Y=4743.001mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2450.723mil|Location2.X=2458.389mil|Location1.Y=4735.334mil|Location2.Y=4743.001mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Track (2435mil,4760mil)(2451mil,4744mil) on Top Overlay And Pad 7805-2(2485mil,4700mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2511.783mil|Location2.X=2519.45mil|Location1.Y=4735.716mil|Location2.Y=4743.382mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2511.783mil|Location2.X=2519.45mil|Location1.Y=4735.716mil|Location2.Y=4743.382mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Track (2518.591mil,4743.591mil)(2535mil,4760mil) on Top Overlay And Pad 7805-2(2485mil,4700mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2964.375mil|Location2.X=2975.625mil|Location1.Y=4224.133mil|Location2.Y=4235.383mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2964.375mil|Location2.X=2975.625mil|Location1.Y=4224.133mil|Location2.Y=4235.383mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.484mil &lt; 10mil) Between Track (2970mil,4238mil)(2970mil,4273mil) on Top Overlay And Pad R1-1(2970mil,4190mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.484mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2959.855mil|Location2.X=2967.521mil|Location1.Y=4220.609mil|Location2.Y=4228.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2959.855mil|Location2.X=2967.521mil|Location1.Y=4220.609mil|Location2.Y=4228.276mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "LEDNGUON" (2693mil,4229mil) on Top Overlay And Pad R1-1(2970mil,4190mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2964.375mil|Location2.X=2975.625mil|Location1.Y=4494.617mil|Location2.Y=4505.867mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2964.375mil|Location2.X=2975.625mil|Location1.Y=4494.617mil|Location2.Y=4505.867mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.484mil &lt; 10mil) Between Track (2970mil,4458mil)(2970mil,4492mil) on Top Overlay And Pad R1-2(2970mil,4540mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.484mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1481.521mil|Location2.X=1489.187mil|Location1.Y=4381.167mil|Location2.Y=4388.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1481.521mil|Location2.X=1489.187mil|Location1.Y=4381.167mil|Location2.Y=4388.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Track (1085mil,4385mil)(1630mil,4385mil) on Top Overlay And Pad JDC-3(1535mil,4365mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1497.241mil|Location2.X=1504.907mil|Location1.Y=4311.282mil|Location2.Y=4318.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1497.241mil|Location2.X=1504.907mil|Location1.Y=4311.282mil|Location2.Y=4318.949mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "JACKVAO" (1251mil,4299mil) on Top Overlay And Pad JDC-3(1535mil,4365mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1626.167mil|Location2.X=1633.833mil|Location1.Y=4503.843mil|Location2.Y=4511.51mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1626.167mil|Location2.X=1633.833mil|Location1.Y=4503.843mil|Location2.Y=4511.51mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Track (1630mil,4385mil)(1630mil,4715mil) on Top Overlay And Pad JDC-1(1635mil,4565mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3997.639mil|Location2.X=4008.889mil|Location1.Y=3179.375mil|Location2.Y=3190.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3997.639mil|Location2.X=4008.889mil|Location1.Y=3179.375mil|Location2.Y=3190.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.473mil &lt; 10mil) Between Track (4010mil,2575mil)(4010mil,3355mil) on Top Overlay And Pad Relay-5(3940mil,3185mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.473mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3391.111mil|Location2.X=3402.361mil|Location1.Y=2699.375mil|Location2.Y=2710.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3391.111mil|Location2.X=3402.361mil|Location1.Y=2699.375mil|Location2.Y=2710.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.473mil &lt; 10mil) Between Track (3390mil,2575mil)(3390mil,3355mil) on Top Overlay And Pad Relay-3(3460mil,2705mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.473mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3516.166mil|Location2.X=3523.832mil|Location1.Y=2702.106mil|Location2.Y=2709.773mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3516.166mil|Location2.X=3523.832mil|Location1.Y=2702.106mil|Location2.Y=2709.773mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Track (3522mil,2706mil)(3588mil,2706mil) on Top Overlay And Pad Relay-3(3460mil,2705mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3693.594mil|Location2.X=3704.844mil|Location1.Y=3215.621mil|Location2.Y=3226.871mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3693.594mil|Location2.X=3704.844mil|Location1.Y=3215.621mil|Location2.Y=3226.871mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (7.498mil &lt; 10mil) Between Track (3699mil,2981mil)(3699mil,3214mil) on Top Overlay And Pad Relay-1(3700mil,3285mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [7.498mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3694.375mil|Location2.X=3705.625mil|Location1.Y=3342.639mil|Location2.Y=3353.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3694.375mil|Location2.X=3705.625mil|Location1.Y=3342.639mil|Location2.Y=3353.889mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.473mil &lt; 10mil) Between Track (3390mil,3355mil)(4010mil,3355mil) on Top Overlay And Pad Relay-1(3700mil,3285mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.473mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3997.639mil|Location2.X=4008.889mil|Location1.Y=2699.375mil|Location2.Y=2710.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3997.639mil|Location2.X=4008.889mil|Location1.Y=2699.375mil|Location2.Y=2710.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.473mil &lt; 10mil) Between Track (4010mil,2575mil)(4010mil,3355mil) on Top Overlay And Pad Relay-2(3940mil,2705mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.473mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3873.123mil|Location2.X=3884.373mil|Location1.Y=2700.231mil|Location2.Y=2711.481mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3873.123mil|Location2.X=3884.373mil|Location1.Y=2700.231mil|Location2.Y=2711.481mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.5mil &lt; 10mil) Between Track (3798mil,2706mil)(3874mil,2706mil) on Top Overlay And Pad Relay-2(3940mil,2705mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [2.5mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3391.111mil|Location2.X=3402.361mil|Location1.Y=3179.375mil|Location2.Y=3190.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3391.111mil|Location2.X=3402.361mil|Location1.Y=3179.375mil|Location2.Y=3190.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.473mil &lt; 10mil) Between Track (3390mil,2575mil)(3390mil,3355mil) on Top Overlay And Pad Relay-4(3460mil,3185mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.473mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.931mil|Location2.X=3525.181mil|Location1.Y=3154.458mil|Location2.Y=3165.708mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.931mil|Location2.X=3525.181mil|Location1.Y=3154.458mil|Location2.Y=3165.708mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.115mil &lt; 10mil) Between Track (3527mil,3157mil)(3640mil,3157mil) on Top Overlay And Pad Relay-4(3460mil,3185mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.115mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3454.617mil|Location2.X=3465.867mil|Location1.Y=3764.375mil|Location2.Y=3775.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3454.617mil|Location2.X=3465.867mil|Location1.Y=3764.375mil|Location2.Y=3775.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.484mil &lt; 10mil) Between Track (3417mil,3770mil)(3452mil,3770mil) on Top Overlay And Pad R2-1(3500mil,3770mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.484mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3184.133mil|Location2.X=3195.383mil|Location1.Y=3764.375mil|Location2.Y=3775.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3184.133mil|Location2.X=3195.383mil|Location1.Y=3764.375mil|Location2.Y=3775.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.484mil &lt; 10mil) Between Track (3198mil,3770mil)(3232mil,3770mil) on Top Overlay And Pad R2-2(3150mil,3770mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.484mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2840.375mil|Location2.X=2851.625mil|Location1.Y=4018.625mil|Location2.Y=4029.875mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2840.375mil|Location2.X=2851.625mil|Location1.Y=4018.625mil|Location2.Y=4029.875mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.5mil &lt; 10mil) Between Track (2846mil,3992mil)(2846mil,4020mil) on Top Overlay And Pad LEDNGUON-1(2835mil,4075mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [1.5mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2760.125mil|Location2.X=2771.375mil|Location1.Y=3529.375mil|Location2.Y=3540.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2760.125mil|Location2.X=2771.375mil|Location1.Y=3529.375mil|Location2.Y=3540.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.5mil &lt; 10mil) Between Track (2770mil,3535mil)(2800mil,3535mil) on Top Overlay And Pad 1N4007-2(2725mil,3535mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [1.5mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3028.616mil|Location2.X=3039.866mil|Location1.Y=3529.375mil|Location2.Y=3540.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3028.616mil|Location2.X=3039.866mil|Location1.Y=3529.375mil|Location2.Y=3540.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.482mil &lt; 10mil) Between Track (3000mil,3535mil)(3030mil,3535mil) on Top Overlay And Pad 1N4007-1(3075mil,3535mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [1.482mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3062.164mil|Location2.X=3069.83mil|Location1.Y=3564.755mil|Location2.Y=3572.421mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3062.164mil|Location2.X=3069.83mil|Location1.Y=3564.755mil|Location2.Y=3572.421mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "Q" (3056mil,3574mil) on Top Overlay And Pad 1N4007-1(3075mil,3535mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.375mil|Location2.X=3804.625mil|Location1.Y=3528.125mil|Location2.Y=3539.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.375mil|Location2.X=3804.625mil|Location1.Y=3528.125mil|Location2.Y=3539.375mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.5mil &lt; 10mil) Between Track (3799mil,3501mil)(3799mil,3529mil) on Top Overlay And Pad LEDRL-1(3790mil,3585mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [2.5mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.133mil|Location2.X=2845.383mil|Location1.Y=3059.375mil|Location2.Y=3070.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.133mil|Location2.X=2845.383mil|Location1.Y=3059.375mil|Location2.Y=3070.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.484mil &lt; 10mil) Between Track (2848mil,3065mil)(2883mil,3065mil) on Top Overlay And Pad R3-1(2800mil,3065mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.484mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3104.617mil|Location2.X=3115.867mil|Location1.Y=3059.375mil|Location2.Y=3070.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3104.617mil|Location2.X=3115.867mil|Location1.Y=3059.375mil|Location2.Y=3070.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.484mil &lt; 10mil) Between Track (3068mil,3065mil)(3102mil,3065mil) on Top Overlay And Pad R3-2(3150mil,3065mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.484mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3423.157mil|Location2.X=3430.823mil|Location1.Y=3469.559mil|Location2.Y=3477.226mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3423.157mil|Location2.X=3430.823mil|Location1.Y=3469.559mil|Location2.Y=3477.226mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "Relay" (3397mil,3408mil) on Top Overlay And Pad Q-3(3445mil,3510mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2884.375mil|Location2.X=2895.625mil|Location1.Y=3681.104mil|Location2.Y=3692.354mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2884.375mil|Location2.X=2895.625mil|Location1.Y=3681.104mil|Location2.Y=3692.354mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.673mil &lt; 10mil) Between Text "1N4007" (2691mil,3618mil) on Top Overlay And Pad lcd1-4(2890mil,3720mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [6.673mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.278mil|Location2.X=2787.528mil|Location1.Y=3681.539mil|Location2.Y=3692.789mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.278mil|Location2.X=2787.528mil|Location1.Y=3681.539mil|Location2.Y=3692.789mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (7.77mil &lt; 10mil) Between Text "1N4007" (2691mil,3618mil) on Top Overlay And Pad lcd1-3(2790mil,3720mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [7.77mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2694.258mil|Location2.X=2705.508mil|Location1.Y=3681.763mil|Location2.Y=3693.013mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2694.258mil|Location2.X=2705.508mil|Location1.Y=3681.763mil|Location2.Y=3693.013mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.294mil &lt; 10mil) Between Text "1N4007" (2691mil,3618mil) on Top Overlay And Pad lcd1-2(2690mil,3720mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.294mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4MU1MCHIDRKTECRSIVCDK5WVGN5ICSZWE4MVT0GU024J42ZF2BOL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2463.259mil|Location2.X=2474.509mil|Location1.Y=3888.892mil|Location2.Y=3900.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2463.259mil|Location2.X=2474.509mil|Location1.Y=3888.892mil|Location2.Y=3900.142mil|Absolute=True">Silk To Silk Clearance Constraint: (7.809mil &lt; 10mil) Between Text "+" (2514.646mil,3924.016mil) on Top Overlay And Arc (2305mil,3895mil) on Top Overlay Silk Text to Silk Clearance [7.809mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3244.858mil|Location2.X=3256.108mil|Location1.Y=4458.259mil|Location2.Y=4469.509mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3244.858mil|Location2.X=3256.108mil|Location1.Y=4458.259mil|Location2.Y=4469.509mil|Absolute=True">Silk To Silk Clearance Constraint: (7.809mil &lt; 10mil) Between Text "+" (3220.984mil,4509.646mil) on Top Overlay And Arc (3250mil,4300mil) on Top Overlay Silk Text to Silk Clearance [7.809mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3089.557mil|Location2.X=3097.224mil|Location1.Y=4275.22mil|Location2.Y=4282.887mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3089.557mil|Location2.X=3097.224mil|Location1.Y=4275.22mil|Location2.Y=4282.887mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "LEDNGUON" (2693mil,4229mil) on Top Overlay And Arc (3250mil,4300mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2177.6mil|Location2.X=2185.267mil|Location1.Y=4772.167mil|Location2.Y=4779.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2177.6mil|Location2.X=2185.267mil|Location1.Y=4772.167mil|Location2.Y=4779.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "DIODE CAU" (1769mil,4776mil) on Top Overlay And Track (2185mil,4375mil)(2185mil,4800mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2177.6mil|Location2.X=2185.267mil|Location1.Y=4796.167mil|Location2.Y=4803.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2177.6mil|Location2.X=2185.267mil|Location1.Y=4796.167mil|Location2.Y=4803.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "DIODE CAU" (1769mil,4776mil) on Top Overlay And Track (2185mil,4800mil)(2210mil,4800mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2211.094mil|Location2.X=2218.76mil|Location1.Y=4772.167mil|Location2.Y=4779.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2211.094mil|Location2.X=2218.76mil|Location1.Y=4772.167mil|Location2.Y=4779.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "DIODE CAU" (1769mil,4776mil) on Top Overlay And Track (2210mil,4700mil)(2210mil,4800mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2247.589mil|Location2.X=2255.256mil|Location1.Y=4772.167mil|Location2.Y=4779.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2247.589mil|Location2.X=2255.256mil|Location1.Y=4772.167mil|Location2.Y=4779.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "DIODE CAU" (1769mil,4776mil) on Top Overlay And Track (2255mil,4700mil)(2255mil,4800mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2275.002mil|Location2.X=2282.668mil|Location1.Y=4796.167mil|Location2.Y=4803.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2275.002mil|Location2.X=2282.668mil|Location1.Y=4796.167mil|Location2.Y=4803.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "DIODE CAU" (1769mil,4776mil) on Top Overlay And Track (2255mil,4800mil)(2315mil,4800mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2967.294mil|Location2.X=2974.96mil|Location1.Y=4271.484mil|Location2.Y=4279.151mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2967.294mil|Location2.X=2974.96mil|Location1.Y=4271.484mil|Location2.Y=4279.151mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "LEDNGUON" (2693mil,4229mil) on Top Overlay And Track (2970mil,4238mil)(2970mil,4273mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2929.378mil|Location2.X=2937.044mil|Location1.Y=4275.15mil|Location2.Y=4282.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2929.378mil|Location2.X=2937.044mil|Location1.Y=4275.15mil|Location2.Y=4282.817mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "LEDNGUON" (2693mil,4229mil) on Top Overlay And Track (2932mil,4273mil)(2932mil,4458mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2995.577mil|Location2.X=3006.827mil|Location1.Y=4267.375mil|Location2.Y=4278.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2995.577mil|Location2.X=3006.827mil|Location1.Y=4267.375mil|Location2.Y=4278.625mil|Absolute=True">Silk To Silk Clearance Constraint: (6.597mil &lt; 10mil) Between Text "LEDNGUON" (2693mil,4229mil) on Top Overlay And Track (3008mil,4273mil)(3008mil,4458mil) on Top Overlay Silk Text to Silk Clearance [6.597mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2969.076mil|Location2.X=2976.743mil|Location1.Y=4271.409mil|Location2.Y=4279.075mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2969.076mil|Location2.X=2976.743mil|Location1.Y=4271.409mil|Location2.Y=4279.075mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "LEDNGUON" (2693mil,4229mil) on Top Overlay And Track (2932mil,4273mil)(3008mil,4273mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3724.369mil|Location2.X=3735.619mil|Location1.Y=2562.615mil|Location2.Y=2573.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3724.369mil|Location2.X=3735.619mil|Location1.Y=2562.615mil|Location2.Y=2573.865mil|Absolute=True">Silk To Silk Clearance Constraint: (6.519mil &lt; 10mil) Between Text "JACKRA" (3710mil,2500mil) on Top Overlay And Track (3390mil,2575mil)(4010mil,2575mil) on Top Overlay Silk Text to Silk Clearance [6.519mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3393.167mil|Location2.X=3400.833mil|Location1.Y=3430.167mil|Location2.Y=3437.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3393.167mil|Location2.X=3400.833mil|Location1.Y=3430.167mil|Location2.Y=3437.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "Relay" (3397mil,3408mil) on Top Overlay And Track (3169mil,3434mil)(3545mil,3434mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3530.604mil|Location2.X=3541.854mil|Location1.Y=3429.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3530.604mil|Location2.X=3541.854mil|Location1.Y=3429.375mil|Location2.Y=3440.625mil|Absolute=True">Silk To Silk Clearance Constraint: (8.542mil &lt; 10mil) Between Text "Relay" (3397mil,3408mil) on Top Overlay And Track (3544mil,3435mil)(3545mil,3434mil) on Top Overlay Silk Text to Silk Clearance [8.542mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3530.604mil|Location2.X=3541.854mil|Location1.Y=3429.375mil|Location2.Y=3440.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3530.604mil|Location2.X=3541.854mil|Location1.Y=3429.375mil|Location2.Y=3440.625mil|Absolute=True">Silk To Silk Clearance Constraint: (8.542mil &lt; 10mil) Between Text "Relay" (3397mil,3408mil) on Top Overlay And Track (3544mil,3435mil)(3544mil,3640mil) on Top Overlay Silk Text to Silk Clearance [8.542mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2872.309mil|Location2.X=2883.559mil|Location1.Y=3186.359mil|Location2.Y=3197.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2872.309mil|Location2.X=2883.559mil|Location1.Y=3186.359mil|Location2.Y=3197.609mil|Absolute=True">Silk To Silk Clearance Constraint: (5.932mil &lt; 10mil) Between Text "R3" (2770mil,3142mil) on Top Overlay And Track (2884.837mil,2820mil)(2884.837mil,3460mil) on Top Overlay Silk Text to Silk Clearance [5.932mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2869.809mil|Location2.X=2881.059mil|Location1.Y=3186.359mil|Location2.Y=3197.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2869.809mil|Location2.X=2881.059mil|Location1.Y=3186.359mil|Location2.Y=3197.609mil|Absolute=True">Silk To Silk Clearance Constraint: (0.932mil &lt; 10mil) Between Text "R3" (2770mil,3142mil) on Top Overlay And Track (2879.837mil,2760mil)(2879.837mil,3380mil) on Top Overlay Silk Text to Silk Clearance [0.932mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2697.164mil|Location2.X=2704.83mil|Location1.Y=3666.167mil|Location2.Y=3673.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2697.164mil|Location2.X=2704.83mil|Location1.Y=3666.167mil|Location2.Y=3673.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "1N4007" (2691mil,3618mil) on Top Overlay And Track (2530.163mil,3670mil)(2949.85mil,3670mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2946.016mil|Location2.X=2953.683mil|Location1.Y=3674.147mil|Location2.Y=3681.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2946.016mil|Location2.X=2953.683mil|Location1.Y=3674.147mil|Location2.Y=3681.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "1N4007" (2691mil,3618mil) on Top Overlay And Track (2949.85mil,3670mil)(2949.85mil,3770mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.21mil|Location2.X=2284.46mil|Location1.Y=4838.865mil|Location2.Y=4850.115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Project\Arduinogiamsatnhayen\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.21mil|Location2.X=2284.46mil|Location1.Y=4838.865mil|Location2.Y=4850.115mil|Absolute=True">Silk To Silk Clearance Constraint: (7.019mil &lt; 10mil) Between Text "DIODE CAU" (1769mil,4776mil) on Top Overlay And Text "7805" (2189mil,4853mil) on Top Overlay Silk Text to Silk Clearance [7.019mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
