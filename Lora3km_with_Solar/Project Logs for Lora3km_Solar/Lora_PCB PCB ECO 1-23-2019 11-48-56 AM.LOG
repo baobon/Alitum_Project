@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=GND Pin=L1-2
+Removed Member From Class: ClassName=Schematic Member=CHRG1
+Removed Member From Class: ClassName=Schematic Member=L1
+Change Component Footprint: Designator=FULL Old Footprint=LED 0603 SMD New Footprint=LED-0805-Blue
+Change Component Comment : Designator=FULL Old Comment=Blue New Comment=LED
+Change component parameters (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Component: Designator=CHRG(LED-0805-Red)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Component: Designator=LD1(LED-0805-Yellow)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=LD1-2
+Change Net Name : Old Net Name=NetFULL1_2 New Net Name=NetFULL_2
+Added Pin To Net: NetName=NetCHRG_1 Pin=CHRG-1
+Added Pin To Net: NetName=NetCHRG_1 Pin=FULL-1
+Added Pin To Net: NetName=NetCHRG_1 Pin=R1-2
+Added Net: Name=NetCHRG_1
+Added Pin To Net: NetName=NetCHRG_2 Pin=CHRG-2
+Added Pin To Net: NetName=NetCHRG_2 Pin=U2-7
+Added Net: Name=NetCHRG_2
+Added Pin To Net: NetName=NetLD1_1 Pin=LD1-1
+Added Pin To Net: NetName=NetLD1_1 Pin=R4-2
+Added Net: Name=NetLD1_1
+Added Member To Class: ClassName=Schematic Member=Component CHRG LED
+Added Member To Class: ClassName=Schematic Member=Component LD1 LED

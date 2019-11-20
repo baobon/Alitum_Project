@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=B+ Pin=Baterry1-1
+Added Pin To Net: NetName=B- Pin=Baterry1-2
+Added Member To Class: ClassName=Schematic Member=Component C8 0.1uF

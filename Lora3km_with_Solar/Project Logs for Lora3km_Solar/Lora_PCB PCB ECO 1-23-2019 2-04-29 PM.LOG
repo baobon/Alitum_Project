@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=A6 Pin=Analog1-7
+Removed Pin From Net: NetName=A7 Pin=Analog1-8
+Change Component Footprint: Designator=C6 Old Footprint=CAP_0805 New Footprint=C0805
+Change Component Footprint: Designator=C7 Old Footprint=CAP_0805 New Footprint=C0805
+Change Component Designator: OldDesignator=3.3V NewDesignator=1
+Change Component Designator: OldDesignator=GND NewDesignator=GND\1

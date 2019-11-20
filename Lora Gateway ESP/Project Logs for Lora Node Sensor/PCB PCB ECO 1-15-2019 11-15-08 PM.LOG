@@ -1,0 +1,67 @@
+Removed Pin From Net: NetName=B- Pin=C4-1
+Removed Pin From Net: NetName=B+ Pin=C4-2
+Removed Pin From Net: NetName=B- Pin=C5-1
+Removed Pin From Net: NetName=3.3V Pin=C5-2
+Removed Pin From Net: NetName=B- Pin=C6-1
+Removed Pin From Net: NetName=3.3V Pin=C6-2
+Change Component Footprint: Designator=C3 Old Footprint=C104 0603 SMD New Footprint=0603C-2U2
+Change Component Footprint: Designator=C6 Old Footprint=C104 0603 SMD New Footprint=0603C-2U2
+Change Component Footprint: Designator=C5 Old Footprint=C104 0603 SMD New Footprint=0805C-TBD
+Change Component Footprint: Designator=C4 Old Footprint=UUD1H101MNL1GS New Footprint=0805C-TBD
+Change Component Comment : Designator=C4 Old Comment=35uF/50v New Comment=2u2
+Change Component Comment : Designator=C3 Old Comment=100pF New Comment=2u2
+Change Component Comment : Designator=C5 Old Comment=100pF New Comment=2u2
+Change Component Comment : Designator=C6 Old Comment=100pF New Comment=2u2
+Change Component Designator: OldDesignator=L1 NewDesignator=Led1
+Change Component Designator: OldDesignator=L2 NewDesignator=Led2
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic - ECG"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "ECJ-1VB0J225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "PCC2273TR-ND"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic - ECG"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "ECJ-1VB0J225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "PCC2273TR-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "TDK Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "C1608X5R1A225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = "C11"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "445-5166-2-ND"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "TDK Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "C1608X5R1A225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = "C11"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "445-5166-2-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic - ECG"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "ECJ-1VB0J225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "PCC2273TR-ND"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic - ECG"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "ECJ-1VB0J225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "PCC2273TR-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "TDK Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "C1608X5R1A225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = "C11"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "445-5166-2-ND"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "TDK Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "C1608X5R1A225K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reel"; Value = "C11"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "445-5166-2-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=B+ Pin=C4-1
+Added Pin To Net: NetName=B- Pin=C4-2
+Added Pin To Net: NetName=3.3V Pin=C5-1
+Added Pin To Net: NetName=B- Pin=C5-2
+Added Pin To Net: NetName=3.3V Pin=C6-1
+Added Pin To Net: NetName=B- Pin=C6-2
+Added Room: Name=Schematic

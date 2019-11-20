@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=GND Pin=Hd2-1
+Removed Pin From Net: NetName=GND Pin=Hd2-2
+Removed Pin From Net: NetName=VCC Pin=Hd2-3
+Removed Pin From Net: NetName=RXI Pin=Hd2-4
+Removed Pin From Net: NetName=TXO Pin=Hd2-5
+Removed Pin From Net: NetName=DTR Pin=Hd2-6
+Removed Member From Class: ClassName=Schematic Member=Hd2
+Change Component Designator: OldDesignator=AnalogCon1 NewDesignator=Digital
+Change Component Designator: OldDesignator=C6 NewDesignator=Analog
+Change Component Designator: OldDesignator=Hd1 NewDesignator=Uart
+Change Component Designator: OldDesignator=Head1 NewDesignator=H_vcc
+Change Component Designator: OldDesignator=Head2 NewDesignator=H_gnd
+Added Room: Name=Schematic

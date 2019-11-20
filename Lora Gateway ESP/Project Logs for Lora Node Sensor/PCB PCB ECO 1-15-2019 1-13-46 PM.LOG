@@ -1,0 +1,5 @@
+Add component (AddParameter): Name = "Value"; Value = "JP7"; VariantName = "[No Variations]"
+Added Component: Designator=JP?(JP7)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "JP7"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Schematic Member=Component JP? JP7 PIN

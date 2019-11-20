@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=B- Pin=HeadP1-1
+Removed Pin From Net: NetName=B- Pin=HeadP1-2
+Removed Pin From Net: NetName=RX1 Pin=HeadP1-4
+Removed Pin From Net: NetName=TX0 Pin=HeadP1-5
+Removed Pin From Net: NetName=DTR Pin=HeadP1-6
+Removed Member From Class: ClassName=Schematic Member=HeadP1
+Added Member To Class: ClassName=Schematic Member=Component Head1 JP8 PIN
+Added Member To Class: ClassName=Schematic Member=Component L1 Red
+Added Member To Class: ClassName=Schematic Member=Component L2 Red
+Added Member To Class: ClassName=Schematic Member=Component L3 Red

@@ -1,0 +1,136 @@
+Removed Pin From Net: NetName=3.3V Pin=C2-1
+Removed Pin From Net: NetName=GND Pin=C2-2
+Removed Pin From Net: NetName=GND Pin=D1-1
+Removed Pin From Net: NetName=3.3V Pin=L1-2
+Removed Pin From Net: NetName=GND Pin=U1-3
+Removed Pin From Net: NetName=3.3V Pin=U1-4
+Removed Pin From Net: NetName=GND Pin=U1-5
+Removed Member From Class: ClassName=Schematic Member=D1
+Removed Member From Class: ClassName=Schematic Member=DW01A
+Removed Member From Class: ClassName=Schematic Member=L1
+Removed Member From Class: ClassName=Schematic Member=U3
+Change Component Footprint: Designator=C1 Old Footprint=UUD1H101MNL1GS New Footprint=C104 0603 SMD
+Change Component Footprint: Designator=C2 Old Footprint=UUD1H101MNL1GS New Footprint=C104 0603 SMD
+Change Component Comment : Designator=C1 Old Comment=47uF New Comment=100pF
+Change Component Comment : Designator=C2 Old Comment=220uF New Comment=100pF
+Change Component Designator: OldDesignator=C3 NewDesignator=C8
+Change Component Designator: OldDesignator=C4 NewDesignator=C9
+Change Component Designator: OldDesignator=C5 NewDesignator=C10
+Change Component Designator: OldDesignator=C6 NewDesignator=C11
+Change Component Designator: OldDesignator=Head3 NewDesignator=Head2
+Change Component Designator: OldDesignator=Head4 NewDesignator=Head3
+Change Component Designator: OldDesignator=HeadP NewDesignator=HeadP1
+Change Component Designator: OldDesignator=J? NewDesignator=Micro1
+Change Component Designator: OldDesignator=Led1 NewDesignator=Led3
+Change Component Designator: OldDesignator=R1 NewDesignator=R6
+Change Component Designator: OldDesignator=R2 NewDesignator=R7
+Change Component Designator: OldDesignator=U2 NewDesignator=U1
+Change Component Designator: OldDesignator=U3 NewDesignator=U2
+Change component parameters. Clean all parameters for all variants
+Change component parameters. Clean all parameters for all variants
+Added Component: Designator=AMS1(AMS-1117)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C3(C104 0603 SMD)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "493-2306-1-ND"; VariantName = "[No Variations]"
+Added Component: Designator=C4(UUD1H101MNL1GS)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "493-2306-1-ND"; VariantName = "[No Variations]"
+Added Component: Designator=C5(C104 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C6(C104 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C7(C104 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=DW1(SOT23-6L)
+Add component. Clean all parameters for all variants
+Added Component: Designator=FS1(SOT23-6L)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Led1(LED 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Led2(LED 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R5(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=AMS1-1
+Added Pin To Net: NetName=3.3V Pin=AMS1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=3.3V Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=3.3V Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=DW1-5
+Added Pin To Net: NetName=GND Pin=FS1-1
+Added Pin To Net: NetName=GND Pin=FS1-3
+Added Pin To Net: NetName=GND Pin=Micro1-5
+Added Pin To Net: NetName=GND Pin=Micro1-5
+Added Pin To Net: NetName=GND Pin=Micro1-5
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=GND Pin=R5-2
+Change Net Name : Old Net Name=GND New Net Name=B-
+Change Net Name : Old Net Name=NetC5_1 New Net Name=NetC10_1
+Change Net Name : Old Net Name=NetC6_1 New Net Name=NetC11_1
+Change Net Name : Old Net Name=NetLed1_1 New Net Name=NetLed3_1
+Added Pin To Net: NetName=5V+B Pin=C7-2
+Added Pin To Net: NetName=5V+B Pin=Led1-1
+Added Pin To Net: NetName=5V+B Pin=Led2-1
+Added Pin To Net: NetName=5V+B Pin=Micro1-1
+Added Net: Name=5V+B
+Added Pin To Net: NetName=B+ Pin=AMS1-3
+Added Pin To Net: NetName=B+ Pin=C2-2
+Added Pin To Net: NetName=B+ Pin=C3-1
+Added Pin To Net: NetName=B+ Pin=C4-2
+Added Pin To Net: NetName=B+ Pin=R1-2
+Added Net: Name=B+
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=DW1-6
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetDW1_1 Pin=DW1-1
+Added Pin To Net: NetName=NetDW1_1 Pin=FS1-4
+Added Net: Name=NetDW1_1
+Added Pin To Net: NetName=NetDW1_2 Pin=DW1-2
+Added Pin To Net: NetName=NetDW1_2 Pin=R4-2
+Added Net: Name=NetDW1_2
+Added Pin To Net: NetName=NetDW1_3 Pin=DW1-3
+Added Net: Name=NetDW1_3
+Added Pin To Net: NetName=NetLed1_2 Pin=Led1-2
+Added Pin To Net: NetName=NetLed1_2 Pin=R2-1
+Added Net: Name=NetLed1_2
+Added Pin To Net: NetName=NetLed2_2 Pin=Led2-2
+Added Pin To Net: NetName=NetLed2_2 Pin=R3-1
+Added Net: Name=NetLed2_2
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Net: Name=NetR3_2
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Net: Name=NetR5_1
+Added Member To Class: ClassName=Schematic Member=Component AMS1 AMS1117 3.3V
+Added Member To Class: ClassName=Schematic Member=Component C7 100pF
+Added Member To Class: ClassName=Schematic Member=Component C8 0.1uF
+Added Member To Class: ClassName=Schematic Member=Component C9 0.1uF
+Added Member To Class: ClassName=Schematic Member=Component C10 100pF
+Added Member To Class: ClassName=Schematic Member=Component C11 100pF
+Added Member To Class: ClassName=Schematic Member=Component DW1 DW01A
+Added Member To Class: ClassName=Schematic Member=Component FS1 FS8250A
+Added Member To Class: ClassName=Schematic Member=Component Led2 Red
+Added Member To Class: ClassName=Schematic Member=Component Led3 Red
+Added Member To Class: ClassName=Schematic Member=Component R3 1K
+Added Member To Class: ClassName=Schematic Member=Component R4 1K
+Added Member To Class: ClassName=Schematic Member=Component R5 1.3K
+Added Member To Class: ClassName=Schematic Member=Component R6 10K
+Added Member To Class: ClassName=Schematic Member=Component R7 1K

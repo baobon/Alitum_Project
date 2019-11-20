@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=C5 Old Footprint=C0805 New Footprint=CAP_0805
+Change Component Designator: OldDesignator=CHRG NewDesignator=CHRG1
+Change Component Designator: OldDesignator=FULL NewDesignator=FULL1
+Change Net Name : Old Net Name=NetCHRG_1 New Net Name=NetCHRG1_1
+Change Net Name : Old Net Name=NetCHRG_2 New Net Name=NetCHRG1_2
+Change Net Name : Old Net Name=NetFULL_2 New Net Name=NetFULL1_2

@@ -1,0 +1,25 @@
+Added Component: Designator=Led1(LED 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Led2(LED 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Led3(LED 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Led4(LED 0603 SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Schematic Member=Component Led1 Red
+Added Member To Class: ClassName=Schematic Member=Component Led2 Red
+Added Member To Class: ClassName=Schematic Member=Component Led3 Red
+Added Member To Class: ClassName=Schematic Member=Component Led4 Red
+Added Member To Class: ClassName=Schematic Member=Component R1 1K
+Added Member To Class: ClassName=Schematic Member=Component R2 1K
+Added Member To Class: ClassName=Schematic Member=Component R3 1K
+Added Member To Class: ClassName=Schematic Member=Component R4 1K
+Added Room: Name=Schematic

@@ -1,0 +1,14 @@
+Removed Member From Class: ClassName=Schematic Member=Led1
+Removed Member From Class: ClassName=Schematic Member=Led2
+Removed Member From Class: ClassName=Schematic Member=Led3
+Change Component Designator: OldDesignator=FT232 NewDesignator=U2
+Change Component Designator: OldDesignator=Led1 NewDesignator=L1
+Change Component Designator: OldDesignator=Led2 NewDesignator=L2
+Change Component Designator: OldDesignator=Led3 NewDesignator=L3
+Change Net Name : Old Net Name=NetLed1_2 New Net Name=NetL1_2
+Change Net Name : Old Net Name=NetLed2_2 New Net Name=NetL2_2
+Change Net Name : Old Net Name=NetLed3_1 New Net Name=NetL3_1
+Added Member To Class: ClassName=Schematic Member=Component C8 4.7uF
+Added Member To Class: ClassName=Schematic Member=Component L1 Red
+Added Member To Class: ClassName=Schematic Member=Component L2 Red
+Added Member To Class: ClassName=Schematic Member=Component L3 Red

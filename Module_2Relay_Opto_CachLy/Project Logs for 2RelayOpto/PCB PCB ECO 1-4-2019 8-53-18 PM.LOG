@@ -1,0 +1,8 @@
+Add component (AddParameter): Name = ""; Value = "C2383"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "C1815"; VariantName = "[No Variations]"
+Added Component: Designator=Q2(SOT23-231)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "C2383"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "C1815"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Schematic Member=Component Q2 2N222
+Added Room: Name=Schematic

@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=GND Pin=C1-1
+Removed Pin From Net: NetName=VIN+ Pin=C1-2
+Change Component Designator: OldDesignator=LED1 NewDesignator=LED2
+Change Component Designator: OldDesignator=LED2 NewDesignator=LED3
+Change Component Designator: OldDesignator=LED3 NewDesignator=LED4
+Added Pin To Net: NetName=VIN+ Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Member To Class: ClassName=Schematic Member=Component LED4 LED
+Added Member To Class: ClassName=Schematic Member=Component U3 ISM 2.4Ghz, 802.11 b/g/n, PA: +25dBm
+Added Room: Name=Schematic

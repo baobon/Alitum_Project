@@ -1,0 +1,18 @@
+Added Component: Designator=U3(Esp-07)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC11_2 Pin=U3-1
+Added Pin To Net: NetName=NetR5_1 Pin=U3-3
+Added Pin To Net: NetName=RL1 Pin=U3-4
+Added Pin To Net: NetName=RL2 Pin=U3-5
+Added Pin To Net: NetName=RL3 Pin=U3-6
+Added Pin To Net: NetName=BTN_RL3 Pin=U3-7
+Added Pin To Net: NetName=NetC9_2 Pin=U3-8
+Added Pin To Net: NetName=GND Pin=U3-15
+Added Pin To Net: NetName=NetR8_1 Pin=U3-16
+Added Pin To Net: NetName=SHT_VANG Pin=U3-17
+Added Pin To Net: NetName=SHT_XANH Pin=U3-18
+Added Pin To Net: NetName=BTN_RL2 Pin=U3-19
+Added Pin To Net: NetName=BTN_RL1 Pin=U3-20
+Added Pin To Net: NetName=NetD2_1 Pin=U3-21
+Added Pin To Net: NetName=TXD Pin=U3-22
+Added Member To Class: ClassName=Schematic Member=Component U3 ISM 2.4Ghz, 802.11 b/g/n, PA: +25dBm

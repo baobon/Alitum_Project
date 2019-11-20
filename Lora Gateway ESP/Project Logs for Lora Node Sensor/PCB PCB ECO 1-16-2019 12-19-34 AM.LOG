@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=5V+B Pin=L2-1
+Added Pin To Net: NetName=5V+B Pin=L3-1
+Added Member To Class: ClassName=Schematic Member=Component L1 Red
+Added Member To Class: ClassName=Schematic Member=Component L2 Red
+Added Member To Class: ClassName=Schematic Member=Component L3 Red

@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=D1 Old Footprint=DIO-SMD-106 New Footprint=DIO-SMD-A
+Change Component Designator: OldDesignator=Ld1 NewDesignator=CHRG
+Change Component Designator: OldDesignator=Ld2 NewDesignator=FULL
+Change Net Name : Old Net Name=NetLd1_1 New Net Name=NetCHRG_1
+Added Pin To Net: NetName=NetCHRG_2 Pin=CHRG-2
+Added Net: Name=NetCHRG_2
+Added Pin To Net: NetName=NetFULL_2 Pin=FULL-2
+Added Net: Name=NetFULL_2
+Added Member To Class: ClassName=Schematic Member=Component U3 CN3056
+Added Room: Name=Schematic

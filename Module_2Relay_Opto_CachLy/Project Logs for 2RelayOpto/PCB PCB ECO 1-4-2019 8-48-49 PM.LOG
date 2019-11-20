@@ -1,0 +1,15 @@
+Add component (AddParameter): Name = ""; Value = "Relay SPDT, 10A, 24V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Relay SPDT, 10A, 12V"; VariantName = "[No Variations]"
+Added Component: Designator=RL1(RL_T78)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "Relay SPDT, 10A, 24V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Relay SPDT, 10A, 12V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = ""; Value = "Relay SPDT, 10A, 24V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Relay SPDT, 10A, 12V"; VariantName = "[No Variations]"
+Added Component: Designator=RL2(RL_T78)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "Relay SPDT, 10A, 24V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Relay SPDT, 10A, 12V"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Schematic Member=Component RL1 Relay 10A/12V
+Added Member To Class: ClassName=Schematic Member=Component RL2 Relay 10A/12V
+Added Room: Name=Schematic

@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=3.3V NewDesignator=1
+Change Component Designator: OldDesignator=Analog NewDesignator=Analog1
+Change Component Designator: OldDesignator=C7 NewDesignator=C6
+Change Component Designator: OldDesignator=C8 NewDesignator=C7
+Change Component Designator: OldDesignator=Digital NewDesignator=Digital1
+Change Component Designator: OldDesignator=GND\ NewDesignator=GND\1
+Change Component Designator: OldDesignator=U3 NewDesignator=U4
+Change Component Designator: OldDesignator=Uart NewDesignator=Uart1
+Added Component: Designator=U3(DFN-8)
+Add component. Clean all parameters for all variants
+Change Net Name : Old Net Name=NetC7_1 New Net Name=NetC6_1
+Change Net Name : Old Net Name=NetC8_1 New Net Name=NetC7_1
+Added Member To Class: ClassName=Schematic Member=Component U4 ATmega328-AU

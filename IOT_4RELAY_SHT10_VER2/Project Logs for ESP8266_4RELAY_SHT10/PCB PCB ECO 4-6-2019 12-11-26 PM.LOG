@@ -1,0 +1,44 @@
+Change Component Designator: OldDesignator=KF1 NewDesignator=KF2
+Added Component: Designator=HI-LINHK1(Hi-Link)
+Add component. Clean all parameters for all variants
+Added Component: Designator=KF1(KF2-7.62)
+Add component. Clean all parameters for all variants
+Added Component: Designator=KF3(KF2-7.62)
+Add component. Clean all parameters for all variants
+Added Component: Designator=KF4(KF2-7.62)
+Add component. Clean all parameters for all variants
+Added Component: Designator=KF5(KF2-7.62)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=HI-LINHK1-3
+Added Pin To Net: NetName=NetHI-LINHK1_1 Pin=HI-LINHK1-1
+Added Pin To Net: NetName=NetHI-LINHK1_1 Pin=KF1-1
+Added Net: Name=NetHI-LINHK1_1
+Added Pin To Net: NetName=NetHI-LINHK1_2 Pin=HI-LINHK1-2
+Added Pin To Net: NetName=NetHI-LINHK1_2 Pin=KF1-2
+Added Net: Name=NetHI-LINHK1_2
+Added Pin To Net: NetName=NetKF3_1 Pin=KF3-1
+Added Pin To Net: NetName=NetKF3_1 Pin=RL1-3
+Added Net: Name=NetKF3_1
+Added Pin To Net: NetName=NetKF3_2 Pin=KF3-2
+Added Pin To Net: NetName=NetKF3_2 Pin=RL1-1
+Added Net: Name=NetKF3_2
+Added Pin To Net: NetName=NetKF4_1 Pin=KF4-1
+Added Pin To Net: NetName=NetKF4_1 Pin=RL2-3
+Added Net: Name=NetKF4_1
+Added Pin To Net: NetName=NetKF4_2 Pin=KF4-2
+Added Pin To Net: NetName=NetKF4_2 Pin=RL2-1
+Added Net: Name=NetKF4_2
+Added Pin To Net: NetName=NetKF5_1 Pin=KF5-1
+Added Pin To Net: NetName=NetKF5_1 Pin=RL3-3
+Added Net: Name=NetKF5_1
+Added Pin To Net: NetName=NetKF5_2 Pin=KF5-2
+Added Pin To Net: NetName=NetKF5_2 Pin=RL3-1
+Added Net: Name=NetKF5_2
+Added Pin To Net: NetName=V2_5V+ Pin=HI-LINHK1-4
+Added Net: Name=V2_5V+
+Added Member To Class: ClassName=Schematic Member=Component HI-LINHK1 Hi-link 5v
+Added Member To Class: ClassName=Schematic Member=Component KF2 Terminal Block 4Pin 5.08  KF4EDGK-5.08-24-L
+Added Member To Class: ClassName=Schematic Member=Component KF3 Terminal Block 2Pin 5.08  KF2EDGK-5.08-2P-L
+Added Member To Class: ClassName=Schematic Member=Component KF4 Terminal Block 2Pin 5.08  KF2EDGK-5.08-2P-L
+Added Member To Class: ClassName=Schematic Member=Component KF5 Terminal Block 2Pin 5.08  KF2EDGK-5.08-2P-L
+Added Room: Name=Schematic

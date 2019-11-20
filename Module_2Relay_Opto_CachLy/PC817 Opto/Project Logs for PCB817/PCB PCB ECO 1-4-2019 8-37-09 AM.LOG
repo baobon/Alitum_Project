@@ -1,0 +1,15 @@
+Change Component Designator: OldDesignator=R2 NewDesignator=R4
+Change Component Designator: OldDesignator=R3 NewDesignator=R5
+Change Component Designator: OldDesignator=R4 NewDesignator=R8
+Added Component: Designator=R2(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R6(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R7(SMD 0603 Res)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Schematic Member=Component R5 1K
+Added Member To Class: ClassName=Schematic Member=Component R6 1K
+Added Member To Class: ClassName=Schematic Member=Component R7 1K
+Added Member To Class: ClassName=Schematic Member=Component R8 1K

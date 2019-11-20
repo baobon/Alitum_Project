@@ -1,0 +1,80 @@
+Change Component Comment : Designator=R1 Old Comment=1K New Comment=3k
+Change Component Comment : Designator=R3 Old Comment=1K New Comment=3k
+Change Component Comment : Designator=R4 Old Comment=1K New Comment=3k
+Change Component Comment : Designator=R5 Old Comment=1K New Comment=3k
+Change Component Comment : Designator=R6 Old Comment=1K New Comment=3K
+Change Component Comment : Designator=R7 Old Comment=1K New Comment=3K
+Change Component Comment : Designator=R8 Old Comment=1K New Comment=3k
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=U1-3
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=NetC2_1 Pin=U2-3
+Added Net: Name=NetC2_1
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=NetC3_1 Pin=U3-3
+Added Net: Name=NetC3_1
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=NetC4_1 Pin=U4-3
+Added Net: Name=NetC4_1
+Added Pin To Net: NetName=NetJ1_2 Pin=J1-2
+Added Pin To Net: NetName=NetJ1_2 Pin=U1-1
+Added Net: Name=NetJ1_2
+Added Pin To Net: NetName=NetJ2_1 Pin=J2-1
+Added Pin To Net: NetName=NetJ2_1 Pin=R1-2
+Added Net: Name=NetJ2_1
+Added Pin To Net: NetName=NetJ3_2 Pin=J3-2
+Added Pin To Net: NetName=NetJ3_2 Pin=U2-1
+Added Net: Name=NetJ3_2
+Added Pin To Net: NetName=NetJ4_1 Pin=J4-1
+Added Pin To Net: NetName=NetJ4_1 Pin=R3-2
+Added Net: Name=NetJ4_1
+Added Pin To Net: NetName=NetJ5_2 Pin=J5-2
+Added Pin To Net: NetName=NetJ5_2 Pin=U3-1
+Added Net: Name=NetJ5_2
+Added Pin To Net: NetName=NetJ6_1 Pin=J6-1
+Added Pin To Net: NetName=NetJ6_1 Pin=R6-2
+Added Net: Name=NetJ6_1
+Added Pin To Net: NetName=NetJ7_2 Pin=J7-2
+Added Pin To Net: NetName=NetJ7_2 Pin=U4-1
+Added Net: Name=NetJ7_2
+Added Pin To Net: NetName=NetJ8_1 Pin=J8-1
+Added Pin To Net: NetName=NetJ8_1 Pin=R7-2
+Added Net: Name=NetJ8_1
+Added Pin To Net: NetName=NetLed1_1 Pin=Led1-1
+Added Pin To Net: NetName=NetLed1_1 Pin=R2-2
+Added Net: Name=NetLed1_1
+Added Pin To Net: NetName=NetLed2_1 Pin=Led2-1
+Added Pin To Net: NetName=NetLed2_1 Pin=R4-2
+Added Net: Name=NetLed2_1
+Added Pin To Net: NetName=NetLed3_1 Pin=Led3-1
+Added Pin To Net: NetName=NetLed3_1 Pin=R5-2
+Added Net: Name=NetLed3_1
+Added Pin To Net: NetName=NetLed4_1 Pin=Led4-1
+Added Pin To Net: NetName=NetLed4_1 Pin=R8-2
+Added Net: Name=NetLed4_1
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-4
+Added Net: Name=NetR1_1
+Added Pin To Net: NetName=NetR2_1 Pin=R2-1
+Added Pin To Net: NetName=NetR2_1 Pin=U1-2
+Added Net: Name=NetR2_1
+Added Pin To Net: NetName=NetR3_1 Pin=R3-1
+Added Pin To Net: NetName=NetR3_1 Pin=U2-4
+Added Net: Name=NetR3_1
+Added Pin To Net: NetName=NetR4_1 Pin=R4-1
+Added Pin To Net: NetName=NetR4_1 Pin=U2-2
+Added Net: Name=NetR4_1
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetR5_1 Pin=U3-2
+Added Net: Name=NetR5_1
+Added Pin To Net: NetName=NetR6_1 Pin=R6-1
+Added Pin To Net: NetName=NetR6_1 Pin=U3-4
+Added Net: Name=NetR6_1
+Added Pin To Net: NetName=NetR7_1 Pin=R7-1
+Added Pin To Net: NetName=NetR7_1 Pin=U4-4
+Added Net: Name=NetR7_1
+Added Pin To Net: NetName=NetR8_1 Pin=R8-1
+Added Pin To Net: NetName=NetR8_1 Pin=U4-2
+Added Net: Name=NetR8_1
+Added Room: Name=Schematic

@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=Uart Old Footprint=JP5-C1T New Footprint=JP5-D1T
+Change Component Designator: OldDesignator=H_gnd NewDesignator=GND\
+Change Component Designator: OldDesignator=H_vcc NewDesignator=3.3V

@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=3.3V+ Pin=KF2-1
+Removed Pin From Net: NetName=BOOT Pin=KF2-2
+Removed Pin From Net: NetName=SHT_VANG Pin=KF2-3
+Removed Pin From Net: NetName=GND Pin=KF2-4
+Added Pin To Net: NetName=GND Pin=KF2-1
+Added Pin To Net: NetName=SHT_VANG Pin=KF2-2
+Added Pin To Net: NetName=BOOT Pin=KF2-3
+Added Pin To Net: NetName=3.3V+ Pin=KF2-4
+Added Member To Class: ClassName=Schematic Member=Component C3 1uF
+Added Member To Class: ClassName=Schematic Member=Component C5 JP2
+Added Member To Class: ClassName=Schematic Member=Component C6 JP2
+Added Member To Class: ClassName=Schematic Member=Component C8 10uF
+Added Member To Class: ClassName=Schematic Member=Component C9 1uF
+Added Member To Class: ClassName=Schematic Member=Component C10 10uF
+Added Member To Class: ClassName=Schematic Member=Component C12 1uF
+Added Member To Class: ClassName=Schematic Member=Component C13 1uF
+Added Member To Class: ClassName=Schematic Member=Component C14 C1815
+Added Member To Class: ClassName=Schematic Member=Component C15 1uF
+Added Member To Class: ClassName=Schematic Member=Component C17 C1815
+Added Member To Class: ClassName=Schematic Member=Component C19 1uF
+Added Room: Name=Schematic

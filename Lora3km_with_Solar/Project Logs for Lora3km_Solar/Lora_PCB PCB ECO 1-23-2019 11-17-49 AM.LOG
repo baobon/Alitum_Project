@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=D1 Old Footprint=DIO-SMD-A New Footprint=DIO-SMD-106
+Change Component Designator: OldDesignator=CHRG NewDesignator=CHRG1
+Change Component Designator: OldDesignator=FULL NewDesignator=FULL1
+Change Net Name : Old Net Name=NetCHRG_1 New Net Name=NetCHRG1_1
+Added Pin To Net: NetName=NetCHRG1_2 Pin=CHRG1-2
+Added Net: Name=NetCHRG1_2
+Added Pin To Net: NetName=NetFULL1_2 Pin=FULL1-2
+Added Net: Name=NetFULL1_2

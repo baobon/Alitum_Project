@@ -1,0 +1,11 @@
+Added Component: Designator=U2(DFN-8)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=NetR3_1 Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=NetD1_2 Pin=U2-4
+Added Pin To Net: NetName=NetBaterry1_1 Pin=U2-5
+Added Pin To Net: NetName=NetFULL1_2 Pin=U2-6
+Added Pin To Net: NetName=NetCHRG1_2 Pin=U2-7
+Added Pin To Net: NetName=NetR2_1 Pin=U2-8
+Added Member To Class: ClassName=Schematic Member=Component U2 CN3056

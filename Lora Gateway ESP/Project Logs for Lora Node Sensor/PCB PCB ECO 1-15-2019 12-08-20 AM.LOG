@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=Header1 NewDesignator=Head1
+Change Component Designator: OldDesignator=Header2 NewDesignator=Head5
+Change Component Designator: OldDesignator=Header3 NewDesignator=Head3
+Change Component Designator: OldDesignator=Header4 NewDesignator=Head2
+Change Component Designator: OldDesignator=Header5 NewDesignator=Head4
+Added Room: Name=Schematic

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=BTN_RL3 Pin=U3-7
+Removed Pin From Net: NetName=BTN_RL2 Pin=U3-19
+Removed Pin From Net: NetName=BTN_RL1 Pin=U3-20
+Added Pin To Net: NetName=BTN_RL1 Pin=U3-7
+Added Pin To Net: NetName=BTN_RL1 Pin=U3-19
+Added Pin To Net: NetName=BTN_RL2 Pin=U3-20

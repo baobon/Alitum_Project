@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=GND Pin=KF?-1
+Removed Pin From Net: NetName=SHT_VANG Pin=KF?-2
+Removed Pin From Net: NetName=SHT_XANH Pin=KF?-3
+Removed Pin From Net: NetName=3.3V+ Pin=KF?-4
+Change Component Designator: OldDesignator=KF? NewDesignator=KF1
+Added Pin To Net: NetName=3.3V+ Pin=KF1-1
+Added Pin To Net: NetName=SHT_XANH Pin=KF1-2
+Added Pin To Net: NetName=SHT_VANG Pin=KF1-3
+Added Pin To Net: NetName=GND Pin=KF1-4
+Added Room: Name=Schematic

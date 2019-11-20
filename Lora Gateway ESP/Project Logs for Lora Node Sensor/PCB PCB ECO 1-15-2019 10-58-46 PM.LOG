@@ -1,0 +1,17 @@
+Change Component Designator: OldDesignator=C9 NewDesignator=C8
+Change Component Designator: OldDesignator=C10 NewDesignator=C9
+Change Component Designator: OldDesignator=C11 NewDesignator=C10
+Change Component Designator: OldDesignator=C12 NewDesignator=C11
+Added Component: Designator=TP1(TP4056-SOP8)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=B- Pin=TP1-1
+Added Pin To Net: NetName=NetR5_1 Pin=TP1-2
+Added Pin To Net: NetName=B- Pin=TP1-3
+Added Pin To Net: NetName=5V+B Pin=TP1-4
+Added Pin To Net: NetName=B+ Pin=TP1-5
+Added Pin To Net: NetName=NetR2_2 Pin=TP1-6
+Added Pin To Net: NetName=NetR3_2 Pin=TP1-7
+Added Pin To Net: NetName=5V+B Pin=TP1-8
+Change Net Name : Old Net Name=NetC11_1 New Net Name=NetC10_1
+Change Net Name : Old Net Name=NetC12_1 New Net Name=NetC11_1
+Added Member To Class: ClassName=Schematic Member=Component TP1 TP4056

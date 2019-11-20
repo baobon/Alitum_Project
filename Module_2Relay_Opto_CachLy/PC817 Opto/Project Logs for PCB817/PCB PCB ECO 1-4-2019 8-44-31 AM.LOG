@@ -1,0 +1,89 @@
+Change Component Designator: OldDesignator=R1 NewDesignator=R2
+Change Component Designator: OldDesignator=R2 NewDesignator=R1
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Added Component: Designator=C1(JP2-D1T)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Added Component: Designator=C2(JP2-D1T)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Added Component: Designator=C3(JP2-D1T)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Added Component: Designator=C4(JP2-D1T)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6130xx143121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 March 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "W¨¹rth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "613002143121"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Schematic Member=Component C1 JP2
+Added Member To Class: ClassName=Schematic Member=Component C2 JP2
+Added Member To Class: ClassName=Schematic Member=Component C3 JP2
+Added Member To Class: ClassName=Schematic Member=Component C4 JP2
+Added Member To Class: ClassName=Schematic Member=Component R2 1K
+Added Member To Class: ClassName=Schematic Member=Component R3 1K
+Added Room: Name=Schematic

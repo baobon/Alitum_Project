@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=U3 Old Footprint=QFN32 New Footprint=TQFP32
+Added Member To Class: ClassName=Schematic Member=Component L1 Red
+Added Member To Class: ClassName=Schematic Member=Component L2 Red
+Added Member To Class: ClassName=Schematic Member=Component L3 Red

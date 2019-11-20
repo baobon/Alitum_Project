@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=NetD1_1 Pin=RL2-4
+Removed Pin From Net: NetName=JD-VCC Pin=RL2-5
+Added Pin To Net: NetName=JD-VCC Pin=RL2-4
+Added Pin To Net: NetName=NetD1_1 Pin=RL2-5
+Added Member To Class: ClassName=Schematic Member=Component Q1 2N222

@@ -1,0 +1,37 @@
+Change Component Designator: OldDesignator=DW NewDesignator=DW1
+Change Component Designator: OldDesignator=FS NewDesignator=FS1
+Change Component Designator: OldDesignator=L1 NewDesignator=Led1
+Change Component Designator: OldDesignator=L2 NewDesignator=Led2
+Change Component Designator: OldDesignator=U1 NewDesignator=U2
+Change Component Designator: OldDesignator=U2 NewDesignator=U4
+Add component (AddParameter): Name = "Category"; Value = "Integrated Circuits (ICs)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Features"; Value = "Serial Interface"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "FIFO's"; Value = "256 Byte"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "FTDI, Future Technology Devices International Ltd"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "FT232RL R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Channels"; Value = "8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "28-SSOP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Tape & Reel (TR)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "RoHS Compliant"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "768-1007-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "768-1007-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "3.3 V ~ 5.25 V"; VariantName = "[No Variations]"
+Added Component: Designator=U1(TSSOP28)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Category"; Value = "Integrated Circuits (ICs)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Features"; Value = "Serial Interface"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "FIFO's"; Value = "256 Byte"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "FTDI, Future Technology Devices International Ltd"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "FT232RL R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Channels"; Value = "8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "28-SSOP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Tape & Reel (TR)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "RoHS Compliant"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "768-1007-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "768-1007-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "3.3 V ~ 5.25 V"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Schematic Member=Component U4 ATmega328-AU

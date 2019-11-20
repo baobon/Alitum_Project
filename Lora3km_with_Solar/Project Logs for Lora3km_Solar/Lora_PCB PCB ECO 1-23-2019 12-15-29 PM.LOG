@@ -1,0 +1,52 @@
+Removed Pin From Net: NetName=RAW Pin=PWR1-1
+Removed Pin From Net: NetName=NetBaterry1_1 Pin=PWR1-2
+Removed Pin From Net: NetName=NetC1_1 Pin=Solar1-1
+Removed Pin From Net: NetName=GND Pin=Solar1-2
+Removed Member From Class: ClassName=Schematic Member=PWR1
+Removed Member From Class: ClassName=Schematic Member=Solar1
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6911031100xx.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 October 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Würth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "691103110002"; VariantName = "[No Variations]"
+Added Component: Designator=PWR(KF2-3.5)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6911031100xx.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 October 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Würth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "691103110002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6911031100xx.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 October 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Würth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "691103110002"; VariantName = "[No Variations]"
+Added Component: Designator=Solar(KF2-3.5)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1 Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2 Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/em/datasheet/6911031100xx.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created Date"; Value = "29 October 2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Würth Elektronik eiSos GmbH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "NoPins"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "partNo"; Value = "691103110002"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=RAW Pin=PWR-1
+Added Pin To Net: NetName=NetBaterry1_1 Pin=PWR-2
+Added Pin To Net: NetName=NetC1_1 Pin=Solar-1
+Added Pin To Net: NetName=GND Pin=Solar-2
+Added Member To Class: ClassName=Schematic Member=Component PWR KF2
+Added Member To Class: ClassName=Schematic Member=Component Solar KF2

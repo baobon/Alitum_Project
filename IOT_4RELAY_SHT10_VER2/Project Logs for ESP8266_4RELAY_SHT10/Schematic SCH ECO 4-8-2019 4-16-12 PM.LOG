@@ -1,0 +1,2 @@
+Remove Pin=U3-19 From Net=BTN_RL3
+Add Pin To Net: Pin=U3-19 Old Net=BTN_RL3 New Net=BTN_RL1

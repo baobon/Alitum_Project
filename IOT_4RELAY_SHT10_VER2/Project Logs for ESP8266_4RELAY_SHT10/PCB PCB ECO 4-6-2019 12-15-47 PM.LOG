@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=C2-1
+Removed Pin From Net: NetName=VIN+ Pin=C2-2
+Removed Member From Class: ClassName=Schematic Member=C2
+Added Member To Class: ClassName=Schematic Member=Component KF1 Terminal Block 2Pin 5.08  KF2EDGK-5.08-2P-L
+Added Room: Name=Schematic

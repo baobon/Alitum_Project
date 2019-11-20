@@ -1,0 +1,18 @@
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Added Component: Designator=U1(DIP4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Added Component: Designator=U2(DIP4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Added Component: Designator=U3(DIP4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Added Component: Designator=U4(DIP4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "PC817"; VariantName = "[No Variations]"
+Added Class: Name=Schematic
+Added Room: Name=Schematic
